@@ -5,6 +5,8 @@ export default {
     BACKGROUND_700: "#0D1D25",
     BACKGROUND_CARD: "hsla(0, 0%, 0%, 0.65)",
     BACKGROUND_BUTTON: "#92000E",
+    BACKGROUND_BUTTON_HEADER: "#750310",
+
 
     WHITE: "#FFFFFF",
     WHITE_100: "#FFFAF1",

@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 15rem;
+  margin-top: 10rem;
   align-items: center;
 
   .projectLogo {
@@ -25,10 +25,6 @@ export const Container = styled.div`
       font-size: 4.2rem;
       font-weight: 700;
     };
-
-    >button:nth-child(1) {
-      height: 48px;
-    }
   };
 
 
@@ -69,13 +65,14 @@ export const Form = styled.form`
   margin: 0 auto;
   flex-direction: column;  
   max-width: 47.6rem;
-  height: 54rem;
-  padding: 6.5rem;
+  height: 60rem;
+  padding: 5.4rem 6.4rem;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
   border-radius: 16px;
   text-align: center;
 
   >h1 {
+    
     font-family: ${({ theme }) => theme.FONTS.POPPINS};
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-size: 3.2rem;
@@ -93,6 +90,6 @@ export const Form = styled.form`
 
   div {
     background: transparent;
-  };
+  }
 
 `;

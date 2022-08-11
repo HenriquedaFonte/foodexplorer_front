@@ -1,4 +1,4 @@
-import { FiLock, FiAtSign } from 'react-icons/fi';
+import { FiLock, FiAtSign, FiUser } from 'react-icons/fi';
 
 import { Container, Form } from "./styles";
 
@@ -9,7 +9,7 @@ import  logoIcon  from '../../assets/Polygon.png';
 
 
 
-export function SignIn() {
+export function SignUp() {
   return(
     <Container> 
       <div className="projectLogo">
@@ -17,7 +17,13 @@ export function SignIn() {
         <h1>Food Explorer</h1>
       </div>     
       <Form>
-        <h1>Login</h1>
+        <h1>Create account</h1>
+        <p>Name</p>
+        <Input 
+          type="text"
+          placeholder="Your name"
+          icon={FiUser}
+        />
         <p>Email</p>
         <Input 
           type="text"
