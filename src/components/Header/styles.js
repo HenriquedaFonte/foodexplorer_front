@@ -1,13 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
   
-  @media (min-width: 800px) {
-    width: 100%;
+  /* @media (min-width: 800px) { */
+  width: 100%;
+  height: 10.4rem;
+
+  
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+  header {
+    margin: 0 auto;
+    max-width: 112rem;
     height: 10.4rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 3.2rem;
     padding: 0 9.3rem;
 
@@ -24,11 +32,11 @@ export const Container = styled.div`
 
       >h1 {
         white-space: nowrap;
-        color: ${({ theme }) => theme.COLORS.WHITE};
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
         font-size: 2.5rem;
         font-weight: 700;
       };
-   };
+    };
 
     button:nth-of-type(1) {
      margin-top: 0;
@@ -41,7 +49,7 @@ export const Container = styled.div`
       border-radius: 5px;
     };
 
-    button:nth-of-type(2) {
+    #command {
       width: 21.6rem;
       height: 5.6rem;
       margin: 0;
@@ -60,5 +68,6 @@ export const Container = styled.div`
       cursor: pointer;
     };
 
-  };
+    }
+
 `;
