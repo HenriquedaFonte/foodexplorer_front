@@ -1,5 +1,13 @@
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
+
 import { FoodCard } from '../FoodCard'
 import { Container } from './styles'
+
 
 import shrimpPasta from '../../assets/food2.png'
 import parmaToast from '../../assets/food1.png'
@@ -14,12 +22,13 @@ import teDAutunno from '../../assets/drink2.png'
 import espresso from '../../assets/drink3.png'
 import pomoBourbon from '../../assets/drink4.png'
 
-export function SectionMain() {
+export function Section() {
+
   const foodCardArray = [
     {
       img: `${shrimpPasta}`,
       name: 'Spaguetti Gambe',
-      description: 'Fresh pasta with toast shrimps, pesto and arugula.',
+      description: 'Fresh pasta with toast shrimps and pesto.',
       price: '34.97$'
     },
     {
@@ -34,6 +43,13 @@ export function SectionMain() {
       description:
         'Tomatoes, cilantro, cucumber, red onion. Fresh and seasoned.',
       price: '9.97$'
+    },
+    {
+      img: `${ravanelloSalad}`,
+      name: 'Ravanello Salad',
+      description:
+        'Radishes, greens and sweet and sour sauce sprinkled with sesame',
+      price: '23.97$'
     },
     {
       img: `${ravanelloSalad}`,
@@ -69,6 +85,13 @@ export function SectionMain() {
       description:
         'Radishes, greens and sweet and sour sauce sprinkled with sesame',
       price: '23.97$'
+    },
+    {
+      img: `${damascusCake}`,
+      name: 'Damascus Cake',
+      description:
+        'Radishes, greens and sweet and sour sauce sprinkled with sesame',
+      price: '23.97$'
     }
   ]
   const foodCardArrayDrink = [
@@ -86,14 +109,21 @@ export function SectionMain() {
     },
     {
       img: `${teDAutunno}`,
-      name: 'Tè d autunno',
+      name: 'Tè d Autunno',
       description:
         'Tomatoes, cilantro, cucumber, red onion. Fresh and seasoned.',
       price: '9.97$'
     },
     {
       img: `${pomoBourbon}`,
-      name: 'Pomo bourbon',
+      name: 'Pomo Bourbon',
+      description:
+        'Radishes, greens and sweet and sour sauce sprinkled with sesame',
+      price: '23.97$'
+    },
+    {
+      img: `${pomoBourbon}`,
+      name: 'Pomo Bourbon',
       description:
         'Radishes, greens and sweet and sour sauce sprinkled with sesame',
       price: '23.97$'
@@ -106,47 +136,85 @@ export function SectionMain() {
         <h1>Main dishes</h1>
       </div>
       <div className="carousel">
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={25}
+          slidesPerGroup={1}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+        >       
         {foodCardArray.map(foodCard => (
-          <div className="cards">
-            <FoodCard
-              img={foodCard.img}
-              name={foodCard.name}
-              description={foodCard.description}
-              price={foodCard.price}
-            />
-          </div>
-        ))};
-  
+          <SwiperSlide className="cards">
+            <a href="{/}">
+              <FoodCard
+                img={foodCard.img}
+                name={foodCard.name}
+                description={foodCard.description}
+                price={foodCard.price}
+              />
+            </a>
+          </SwiperSlide>
+          ))};    
+        </Swiper>
       </div>
       <div className="sectionTitle">
         <h1>Desserts</h1>
       </div>
       <div className="carousel">
-        <div className="cards">
-          
-        </div>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={25}
+          slidesPerGroup={1}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+        >       
         {foodCardArrayDesserts.map(foodCard => (
-          <FoodCard
-            img={foodCard.img}
-            name={foodCard.name}
-            description={foodCard.description}
-            price={foodCard.price}
-          />
-        ))};
+          <SwiperSlide className="cards">
+            <a href="{/}">
+              <FoodCard
+                img={foodCard.img}
+                name={foodCard.name}
+                description={foodCard.description}
+                price={foodCard.price}
+              />
+            </a>
+          </SwiperSlide>
+          ))};    
+        </Swiper>
       </div>
       <div className="sectionTitle">
         <h1>Drinks</h1>
       </div>
       <div className="carousel">
-      <div className="cards"></div>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={25}
+          slidesPerGroup={1}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+        >       
         {foodCardArrayDrink.map(foodCard => (
-          <FoodCard
-            img={foodCard.img}
-            name={foodCard.name}
-            description={foodCard.description}
-            price={foodCard.price}
-          />
-        ))};
+          <SwiperSlide className="cards">
+            <a href="{/}">
+              <FoodCard
+                img={foodCard.img}
+                name={foodCard.name}
+                description={foodCard.description}
+                price={foodCard.price}
+              />
+            </a>
+          </SwiperSlide>
+          ))};    
+        </Swiper>
       </div>
     </Container>
   )

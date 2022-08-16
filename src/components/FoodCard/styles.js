@@ -4,14 +4,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 4rem;
   gap: 1.6rem;
   width: 30rem;
   height: 51.2rem;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.BACKGROUND_CARD};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_CARD};
 
   #favorite {
-    margin-right: 2.1rem;
     margin-top: 2.1rem;
     margin-bottom: -1rem;
     align-self: flex-end;

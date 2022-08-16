@@ -2,7 +2,7 @@ import { Header } from '../../components/Header';
 import { HeaderMobile } from '../../components/HeaderMobile';
 import { Container } from './styles';
 import bannerImg from '../../assets/bannerImg.png';
-import { SectionMain } from '../../components/SectionMain';
+import { Section } from '../../components/Section';
 
 export function Home() {
   return(
@@ -15,7 +15,7 @@ export function Home() {
             <p>Highly selected ingredients</p>
           </div>
         </div> 
-          <SectionMain />        
+          <Section />        
     </Container>
   );
 };

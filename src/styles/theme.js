@@ -1,6 +1,6 @@
 export default {
   COLORS: {
-    BACKGROUND_900: "#000A0F",
+    BACKGROUND_900: "hsla(199, 100%, 3%, 1)",
     BACKGROUND_800: "#00111A",
     BACKGROUND_700: "#0D1D25",
     BACKGROUND_CARD: "hsla(0, 0%, 0%, 0.65)",
