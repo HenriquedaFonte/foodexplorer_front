@@ -9,8 +9,8 @@ import { Input } from '../Input'
 
 export function Header() {
   return (
-    <Container>  
-      <header>
+    <Container>
+      <div className="headerContent">  
         <div className="projectLogo">
           <img src={logoIcon} alt="" />
           <h1>Food Explorer</h1>
@@ -23,12 +23,12 @@ export function Header() {
         />
         <button id="command">
           <TbClipboardList size={18} />
-          My command (0)
+          My command
         </button>
         <div className="logOut" onClick={() => console.log('test')}>
           <MdLogout size={30} fill="white" />
-        </div>      
-      </header>    
+        </div>  
+      </div>    
     </Container>
   )
 }

@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  
-  /* @media (min-width: 800px) { */
   width: 100%;
   height: 10.4rem;
-
+  margin: 0 auto;
+  
   
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-  header {
+  .headerContent {
+    max-width: 1120px;
     margin: 0 auto;
-    max-width: 112rem;
     height: 10.4rem;
     display: flex;
     align-items: center;
@@ -50,13 +49,14 @@ export const Container = styled.div`
     };
 
     #command {
-      width: 21.6rem;
+      width: 18.6rem;
       height: 5.6rem;
       margin: 0;
-      padding: 1.2rem 3.3rem;
+      padding: 1.2rem 1.3rem;
       display: flex;
       align-items: center;
-      gap: .8rem;
+      justify-content: center;
+      gap: 0.8rem;
       border: none;
       border-radius: 5px;
       white-space: nowrap;

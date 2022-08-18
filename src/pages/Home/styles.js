@@ -2,17 +2,20 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-    max-width: 112rem;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    padding: 0 9.3rem;
-    
-    .banner {
+
+    .homeContent {
+      height: 100%;
       max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 9.3rem;
+  
+    
+    .banner {      
       height: 26rem;
       margin-top: 17rem;
-
       display: grid;
       grid-template-columns: 55% 45%;
       grid-template-areas: "img text";
@@ -46,4 +49,5 @@ export const Container = styled.div`
         }; 
       };
   };
+}
 `;

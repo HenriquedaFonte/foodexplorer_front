@@ -12,12 +12,15 @@ import { HeaderMobile } from '../src/components/HeaderMobile';
 import { SignUp } from './pages/SignUp/index';
 import { Home } from './pages/Home/index';
 import { Section } from './components/Section';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { ProductDetail } from './pages/ProductDetail';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-        <Home />       
+        <ProductDetail />       
     </ThemeProvider>
   </React.StrictMode>
 )

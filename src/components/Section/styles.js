@@ -37,33 +37,40 @@ export const Container = styled.div`
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    scroll-snap-align: center;
+    scroll-snap-align: center;    
+  }
+
+  .shadeLeft {
+    background: linear-gradient(90deg, #000A0F, transparent);
+    z-index: 100;
+    position: absolute;
+    width: 10rem;
+    height: 51rem;
+    margin-top: -51rem;    
+    
+  }
+
+  .shadeRight {
+    background: linear-gradient(270deg, #000A0F, transparent);
+    z-index: 100;
+    position: absolute;
+    width: 10rem;
+    height: 51rem;
+    margin-top: -52.3rem;
+    right: 0;    
     
   }
 
   .swiper-button-prev{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: -26rem;
-    margin-left: -1rem;
-    width: 25rem;
-    height: 51rem;
-    background: linear-gradient(90deg, #000A0F, transparent);   
-    color: #ffffff;   
+    z-index: 200;
+    color: #ffffff;  
    
   }
+
+  
+  
   .swiper-button-next{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: -26rem;
-    margin-right: -1rem;
-    width: 25rem;
-    height: 51rem;
-    background: linear-gradient(270deg, #000A0F, transparent);
+    z-index: 200;
     color: #ffffff;    
   }
 
