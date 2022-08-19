@@ -7,6 +7,7 @@ export default {
     BACKGROUND_BUTTON: "#92000E",
     BACKGROUND_BUTTON_HEADER: "#750310",
 
+    TABLE_BORDER: "hsla(201, 22%, 13%, 1)",
 
     WHITE: "#FFFFFF",
     WHITE_100: "#E1E1E6",
@@ -19,5 +20,6 @@ export default {
   FONTS: {
     ROBOTO: "'Roboto', sans-serif",
     POPPINS: "'Poppins', sans-serif"
+    
   }
 };

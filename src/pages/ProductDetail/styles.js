@@ -1,19 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100vh;
-  margin: 0 auto;
-
- 
+  margin: 0 auto; 
 
   .productDetailContainer {
     height: 100%;
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 9.3rem 5rem 9.3rem;
+    padding: 0 5.3rem 5rem 5.3rem;
     gap: 4rem;
     display: flex;
     align-items: center;
@@ -113,7 +109,7 @@ export const Container = styled.div`
   }
   .footer {
     position: absolute;
-    margin-bottom: 0;
+    bottom: 0;
   }
   
 `

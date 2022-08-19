@@ -15,12 +15,13 @@ import { Section } from './components/Section';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ProductDetail } from './pages/ProductDetail';
+import { Commands } from './pages/Commands';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-        <ProductDetail />       
+        <Commands />       
     </ThemeProvider>
   </React.StrictMode>
 )

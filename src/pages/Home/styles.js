@@ -10,7 +10,7 @@ export const Container = styled.div`
       height: 100%;
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 9.3rem;
+      padding: 0 6.3rem;
   
     
     .banner {      

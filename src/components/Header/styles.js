@@ -16,7 +16,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     gap: 3.2rem;
-    padding: 0 9.3rem;
+    
 
     .projectLogo {
       display: flex;

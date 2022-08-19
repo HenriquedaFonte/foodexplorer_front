@@ -4,17 +4,19 @@ export const Container = styled.div`
   width: 100%;
   height: 10.4rem;
   margin: 0 auto;
+
   
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
   .footerContent { 
-    width: 112rem;
+    max-width: 1120px;
     margin: 0 auto;
     height: 10.4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 9.3rem;
+    padding: 0 6.3rem;
+    
     
     .projectLogo {
       display: flex;
