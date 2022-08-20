@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;  
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   padding: 0;
 
@@ -26,10 +26,26 @@ export const Container = styled.div`
     table {
       border-collapse: collapse;
       max-width: 1120px;
-      height: auto;
+      height: 100%;
       margin: 0 auto; 
            
       border: 2px solid ${({ theme }) => theme.COLORS.TABLE_BORDER};
+
+
+      ::-webkit-scrollbar {
+        width: 20px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border: 5px solid transparent;
+        background-clip: padding-box;
+        background-color: var(--scroll-color);
+        border-radius: 10px;
+      }
 
       thead {
         font-family: ${({ theme }) => theme.FONTS.ROBOTO};
@@ -70,13 +86,11 @@ export const Container = styled.div`
         svg {
           margin-right: 0.8rem;
         }
-
       }
     }
-
 } 
-  .footer {
-    border: 2px solid red;
+
+  div:nth-child(3) {    
     position: absolute;
     bottom: 0;
   }
