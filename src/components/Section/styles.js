@@ -44,7 +44,7 @@ export const Container = styled.div`
     background: linear-gradient(90deg, #000A0F, transparent);
     z-index: 100;
     position: absolute;
-    width: 10rem;
+    width: 12rem;
     height: 51rem;
     margin-top: -51rem;    
     
@@ -54,7 +54,7 @@ export const Container = styled.div`
     background: linear-gradient(270deg, #000A0F, transparent);
     z-index: 100;
     position: absolute;
-    width: 10rem;
+    width: 12rem;
     height: 51rem;
     margin-top: -52.3rem;
     right: 0;    

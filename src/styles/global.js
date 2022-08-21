@@ -26,6 +26,7 @@ export default createGlobalStyle`
   };
 
   body {
+    height: 100vh;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
 

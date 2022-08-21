@@ -153,7 +153,9 @@ export function Home() {
           ))};  
         </div>
       </div>
-      <Footer />       
+      <div className="footerHome">
+        <Footer /> 
+      </div>      
     </Container>
   );
 };

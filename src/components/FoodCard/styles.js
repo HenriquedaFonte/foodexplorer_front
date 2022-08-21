@@ -41,7 +41,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.BLUE};
   }
 
-  footer {
+  .footerCard {
     width: 23rem;
     display: flex;
     align-items: center;

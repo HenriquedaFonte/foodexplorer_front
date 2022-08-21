@@ -25,7 +25,7 @@ export const Container = styled.div`
       img {        
         grid-area: "img";
         margin-left: -7rem;
-        margin-top: -14rem;
+        margin-top: -13.6rem;
         width: 65rem;
         height: 41rem;
       };
@@ -49,5 +49,11 @@ export const Container = styled.div`
         }; 
       };
   };
-}
+
+  .section{
+    height: 100%;
+  };
+
+};
+
 `;

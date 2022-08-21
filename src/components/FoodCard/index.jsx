@@ -10,14 +10,14 @@ export function FoodCard({ img: Img, name, description, price, ...rest }) {
       <h1>{name}</h1>
       <p>{description}</p>
       <h2>{price}</h2>
-      <footer>
+      <div className="footerCard">
         <div className="stepper">
           <BiMinus size={25} color="white"/>
           <strong>01</strong>
           <BiPlus size={25} color="white"/>
         </div>
         <Button id="addFood" title="Add"/>
-      </footer>
+      </div>
     </Container >
   );
 };

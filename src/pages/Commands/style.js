@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: grid;
+  grid-template-rows: 10.4rem 1fr 10.4rem;
+  grid-template-areas: 
+  "header"
+  "content"
+  "footer"
+  ;
   display: flex;
   flex-direction: column;
   width: 100%;  
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   padding: 0;
 
@@ -18,15 +25,16 @@ export const Container = styled.div`
   }
 
   .commandsConteiner{
+    grid-area: content;
     max-width: 1120px;
-    min-height: 50rem; 
+    height: 100%; 
     margin: 0 auto; 
     padding: 0 5.3rem 5rem 5.3rem;      
   
     table {
       border-collapse: collapse;
       max-width: 1120px;
-      height: 100%;
+      height: auto;
       margin: 0 auto; 
            
       border: 2px solid ${({ theme }) => theme.COLORS.TABLE_BORDER};
@@ -71,11 +79,6 @@ export const Container = styled.div`
         }
       }
 
-
-      th:last-child {
-        border-top-right-radius: 1.1rem;
-      }
-      
       td {
         height: 5.4rem;
         padding: 2.4rem;
@@ -90,9 +93,6 @@ export const Container = styled.div`
     }
 } 
 
-  div:nth-child(3) {    
-    position: absolute;
-    bottom: 0;
-  }
+
 
 `

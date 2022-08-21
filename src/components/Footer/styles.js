@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  grid-area: footer;
   width: 100%;
   height: 10.4rem;
   margin: 0 auto;
-
   
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 

@@ -1,12 +1,20 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div`  
+  display: grid;
+  grid-template-rows: 10.4rem 1fr 10.4rem;
+  grid-template-areas: 
+  "header"
+  "content"
+  "footer"
+  ;
   width: 100%;
   height: 100vh;
   margin: 0 auto; 
 
   .productDetailContainer {
-    height: 100%;
+    grid-area: content;
+    height: auto;
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 5.3rem 5rem 5.3rem;
@@ -21,7 +29,7 @@ export const Container = styled.div`
       img {
         grid-area: img;
         width: 38rem;
-      }
+      };
 
       #productDetailBack {
         display: flex;
@@ -33,9 +41,9 @@ export const Container = styled.div`
         svg {
           width: 3.5rem;
           height: 3.8rem;
-        }
-      }
-    }
+        };
+      };
+    };
 
 
     .productDetailDescription {      
@@ -50,19 +58,19 @@ export const Container = styled.div`
       font-size: 4rem;
       font-weight: 500;
       color: ${({ theme }) => theme.COLORS.WHITE_100};
-      }
+      };
   
       p {
       font-family: ${({ theme }) => theme.FONTS.ROBOTO};
       font-size: 2.4rem;
       color: ${({ theme }) => theme.COLORS.WHITE_100};
-      }
+      };
   
       h2 {
       font-family: ${({ theme }) => theme.FONTS.ROBOTO};
       font-size: 3.2rem;
       color: ${({ theme }) => theme.COLORS.BLUE};
-      }
+      };
     
       .productDetailIngredients {
         display: flex;
@@ -70,16 +78,16 @@ export const Container = styled.div`
         .igredients {
           max-width: 7.2rem;
           height: 9.8rem;
-        }
+        };
 
         img {
           width: 7rem;
-        }
+        };
 
         p {
           font-size: 1.8rem;
-        }
-      }
+        };
+      };
 
       .productDetailinfo {
         display: flex;
@@ -96,20 +104,16 @@ export const Container = styled.div`
           Strong {
             color: white;
             font-size: 2rem;
-          }
-        }
+          };
+        };
 
         button {
           max-width: 9rem;
           margin-left: 4rem;
           margin-top: 0;
-        }
-      }
-    }
-  }
-  .footer {
-    position: absolute;
-    bottom: 0;
-  }
+        };
+      };
+    };
+  };
   
 `

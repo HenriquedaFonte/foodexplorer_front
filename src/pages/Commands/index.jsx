@@ -1,6 +1,5 @@
 import { Container } from './style';
 
-import ReactLogo from '../../assets/Ellipse.svg';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 
@@ -67,7 +66,7 @@ const commands = [
           </tbody>
       </table>
       </div>
-      <Footer />
+      <Footer id="commandFooter"/>
     </Container>
   )
 }
