@@ -42,9 +42,9 @@ export const Container = styled.div`
 
   .shadeLeft {
     background: linear-gradient(90deg, #000A0F, transparent);
-    z-index: 100;
+    z-index: 10;
     position: absolute;
-    width: 12rem;
+    width: 5rem;
     height: 51rem;
     margin-top: -51rem;    
     
@@ -54,7 +54,7 @@ export const Container = styled.div`
     background: linear-gradient(270deg, #000A0F, transparent);
     z-index: 100;
     position: absolute;
-    width: 12rem;
+    width: 6rem;
     height: 51rem;
     margin-top: -52.3rem;
     right: 0;    
@@ -63,12 +63,9 @@ export const Container = styled.div`
 
   .swiper-button-prev{
     z-index: 200;
-    color: #ffffff;  
-   
+    color: #ffffff;    
   }
-
-  
-  
+    
   .swiper-button-next{
     z-index: 200;
     color: #ffffff;    

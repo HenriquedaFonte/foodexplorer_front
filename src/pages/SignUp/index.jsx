@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { FiLock, FiAtSign, FiUser } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Form } from "./styles";
+
+import { api } from '../../services/api';
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -10,6 +14,49 @@ import  logoIcon  from '../../assets/Polygon.png';
 
 
 export function SignUp() {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  function HandleSignUp() {
+    if(!name || !email || !password) {
+      return alert('Please enter your name, email and password');
+    };
+
+    if(password.length < 6) {
+      return alert('Password must be 6 or more characters!');
+    };
+
+    api.post('/users', { name, email, password })
+    .then(() => {
+      alert('User has been registered!');
+      navigate('/');
+    })
+    .catch(error => {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('User registration error!');
+      };
+    });
+
+    console.log(name, email, password)
+  };
+
+  const [typeInput, setTypeInput] = useState("password");
+  const [classButton, setClassButton] = useState("hidePassword");
+  function ToggleTypeInput() {
+    if (typeInput === "password") {
+      setTypeInput("text");
+      setClassButton("showPassword");
+    } else {
+      setTypeInput("password");
+      setClassButton("hidePassword");
+    };
+  };
+
   return(
     <Container> 
       <div className="projectLogo">
@@ -23,24 +70,32 @@ export function SignUp() {
           type="text"
           placeholder="Your name"
           icon={FiUser}
+          onChange={event => setName(event.target.value)}
         />
         <p>Email</p>
         <Input 
           type="text"
           placeholder="email@email.com"
           icon={FiAtSign}
+          onChange={event => setEmail(event.target.value)}
         />
         <p>Password</p>
-        <Input 
-          type
-          placeholder="Minimum 6 characters"
-          icon={FiLock}
-        />
+        <div className="inputPassword">
+          <Input 
+            type={typeInput} 
+            placeholder="Minimum 6 characters"
+            icon={FiLock}
+            onChange={event => setPassword(event.target.value)}
+          />
+          <button type="button" id="btnPassword" className={classButton} onClick={ToggleTypeInput}/>
+        </div>
         <Button 
-          title="Login" 
+          title="SingUp" 
+          onClick={HandleSignUp}
         />
         <ButtonText 
-          title="Sign Up"
+          title="I already have an account"
+          onClick={() => navigate('/')}
         />
       </Form>
     </Container>

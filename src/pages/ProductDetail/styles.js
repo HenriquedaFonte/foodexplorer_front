@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`  
   display: grid;
-  grid-template-rows: 10.4rem 1fr 10.4rem;
+  grid-template-rows: 10.4rem 5rem 1fr 10.4rem;
   grid-template-areas: 
   "header"
+  "button"
   "content"
   "footer"
   ;
@@ -12,36 +13,45 @@ export const Container = styled.div`
   height: 100vh;
   margin: 0 auto; 
 
+  .buttonBack { 
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto; 
+    
+    #buttonBack{
+      grid-area: button;
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;      
+      margin-left: 5.4rem;     
+      font-size: 2.4rem; 
+          
+      svg {
+        width: 3.5rem;
+        height: 3rem;
+      };
+    };
+  };
+
   .productDetailContainer {
     grid-area: content;
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    grid-template-areas: "img description";
     height: auto;
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 5.3rem 5rem 5.3rem;
+    padding: 0 5.3rem;
     gap: 4rem;
     display: flex;
     align-items: center;
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-areas: "img description";
 
-    .productDetailImage {      
-      img {
-        grid-area: img;
+   
+    .productDetailImage {   
+      grid-area: img;   
+
+      img {       
         width: 38rem;
-      };
-
-      #productDetailBack {
-        display: flex;
-        align-items: center;
-        width: 9rem;
-        margin-top: 1rem;
-        font-size: 2.4rem;  
-      
-        svg {
-          width: 3.5rem;
-          height: 3.8rem;
-        };
       };
     };
 
@@ -74,10 +84,27 @@ export const Container = styled.div`
     
       .productDetailIngredients {
         display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 3rem;
 
         .igredients {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
           max-width: 7.2rem;
           height: 9.8rem;
+          gap: 1.5rem;
+
+          .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+          }
+
         };
 
         img {

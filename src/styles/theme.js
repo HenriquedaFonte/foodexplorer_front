@@ -15,7 +15,9 @@ export default {
     GRAY_100: "#c3c4c7",
     GRAY_300: "#7C7C8A",
 
-    BLUE: "#82F3FF"
+    BLUE: "#82F3FF",
+
+    GREEN: "#32CD32"
   },
   FONTS: {
     ROBOTO: "'Roboto', sans-serif",

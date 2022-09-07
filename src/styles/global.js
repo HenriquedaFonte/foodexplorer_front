@@ -10,6 +10,10 @@ export default createGlobalStyle`
   :root{
     font-size:62.5%;
 
+    @media(max-width:1400px){
+      font-size: 60.25%;
+    };
+
     @media(max-width:1200px){
       font-size: 56.25%;
     };
@@ -30,7 +34,7 @@ export default createGlobalStyle`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
 
-  body, input, button, textarea {
+  body, input, button, textarea, a {
     -webkit-fonte-smoothing: antialiased;
     outline: none;
   };
@@ -48,4 +52,4 @@ export default createGlobalStyle`
     filter: brightness(0.9);
   };
   
-  `;
+`;

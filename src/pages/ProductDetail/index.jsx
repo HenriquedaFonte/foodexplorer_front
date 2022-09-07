@@ -1,3 +1,5 @@
+import { useNavigate, useParams } from 'react-router-dom'; 
+
 import { IoIosArrowBack } from 'react-icons/io';
 import { Button } from '../../components/Button';
 import { BiPlus, BiMinus } from 'react-icons/bi';
@@ -8,18 +10,24 @@ import { Footer } from '../../components/Footer';
 import ravanelloSalad from '../../assets/food3.png'
 import lettuce from '../../assets/lettuce.png'
 import lemon from '../../assets/lemon.png'
+import radish from '../../assets/radish.png'
 
-export function ProductDetail(product) {
+export function ProductDetail() {
+  const navigate = useNavigate();
+  const params = useParams();
   return (
     <Container>
       <Header />
+      <div className="buttonBack">
+        <ButtonText
+          title="Back"
+          icon={IoIosArrowBack}
+          id="buttonBack"
+          onClick={() => navigate(-1)}
+        />
+      </div>
       <div className="productDetailContainer">
         <div className="productDetailImage">
-          <ButtonText
-            title="Back"
-            icon={IoIosArrowBack}
-            id="productDetailBack"
-          />
           <img src={ravanelloSalad} />
         </div>
         <div className="productDetailDescription">
@@ -29,11 +37,21 @@ export function ProductDetail(product) {
           </p>
           <div className="productDetailIngredients">
             <div className="igredients">
-              <img src={lettuce} />
+              <div className="image">
+                <img src={lettuce} />
+              </div>
               <p>Letuce</p>
             </div>
             <div className="igredients">
-              <img src={lemon} />
+              <div className="image">
+                <img src={radish} />
+              </div>
+              <p>Radish</p>
+            </div>
+            <div className="igredients">
+              <div className="image">
+                <img src={lemon} />
+              </div>
               <p>Lemon</p>
             </div>
           </div>

@@ -17,15 +17,16 @@ import passionFruitDrink from '../../assets/drink1.png'
 import teDAutunno from '../../assets/drink2.png'
 import espresso from '../../assets/drink3.png'
 import pomoBourbon from '../../assets/drink4.png'
+import { useState } from 'react'
 
-export function Home() {
+export function Favorites() {
   const data = [
     {
       category: 'Main Menu',
       products: [
         {
           id: 1,
-          favorite: false,
+          favorite: true,
           img: `${shrimpPasta}`,
           name: 'Spaguetti Gambe',
           description: 'Fresh pasta with toast shrimps and pesto.',
@@ -33,7 +34,7 @@ export function Home() {
         },
         {
           id: 2,
-          favorite: false,
+          favorite: true,
           img: `${parmaToast}`,
           name: 'Parma Toast',
           description: 'Parma ham and arugula in a naturally leavened bread.',
@@ -165,6 +166,11 @@ export function Home() {
       ]
     }
   ];
+
+  const [ productFiltere, setProductFiltered ] = useState([]);
+  const product = data.filter(product => (product.favorite = true));
+
+  const productFiltered = product.map(product => (console.log(productFiltered)));
 
 
   return (

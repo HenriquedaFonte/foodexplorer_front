@@ -23,6 +23,7 @@ export const Container = styled.div`
       align-items: center;
       gap: 1.1rem;
       flex-direction: row;
+      width: 72rem;
 
       >img {
         width: 2.9rem;
@@ -37,15 +38,14 @@ export const Container = styled.div`
       };
     };
 
-    button:nth-of-type(1) {
-     margin-top: 0;
-    };
+    .right {
+      display: flex;
+      align-items: center;
+    }    
 
-    div {
+    button:nth-of-type(1) {
       margin-top: 0;
-      max-width: 41rem;
-      border: none;
-      border-radius: 5px;
+      margin-right: 2rem;
     };
 
     #command {
@@ -67,7 +67,7 @@ export const Container = styled.div`
     .logOut {
       cursor: pointer;
     };
-
-    };
+    
+  };
 
 `;

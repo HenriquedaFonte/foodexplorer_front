@@ -19,7 +19,7 @@ export function Section({category, products}) {
           slidesPerView={3}
           spaceBetween={25}
           slidesPerGroup={1}
-          loop={true}
+          loop={false}
           loopFillGroupWithBlank={true}
           navigation={true}
           modules={[Navigation]}
@@ -27,15 +27,15 @@ export function Section({category, products}) {
         >   
         <div className="shadeLeft"></div>    
         {products.map(product => (
-          <SwiperSlide className="cards">
-            <a href="{/}">
+          <SwiperSlide className="cards">            
               <FoodCard
+                id={product.id}
+                favorite={product.favorite}
                 img={product.img}
                 name={product.name}
                 description={product.description}
                 price={product.price}
               />
-            </a>
           </SwiperSlide>
           ))};   
         <div className="shadeRight"></div>   
