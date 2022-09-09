@@ -39,12 +39,14 @@ export const Container = styled.div`
 export const Form = styled.form`
   grid-area: content;
   width: 100%;
+  height: 100%;
   max-width: 1120px;
-  margin: auto;
-  height: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+
 
   
   h1 {
@@ -65,19 +67,18 @@ export const Form = styled.form`
   section {
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-between;
+    gap: 2rem;
     font-size: 1.6rem;
     color: ${({ theme }) => theme.COLORS.WHITE}
 
   };
-
+  
   #dishImg {
-    width: 22rem;
-    font-size: 1.6rem;
-    align-items: center;
-    justify-content: center;
+    width: 26rem;
   };
-
+  
   #addDishImgButton {
     position: absolute;
     margin-top: 3.1rem;
@@ -86,17 +87,18 @@ export const Form = styled.form`
     height: 3.5rem;
     background-color: transparent;
     border: none;
-
+    
     svg {
       width: 3rem;
       height: 3rem;
+      fill: white;
     }
   };
 
   .inputLabelPosition {
     display: flex;
     flex-direction: column;
-
+    
     input[type=number]::-webkit-inner-spin-button { 
       -webkit-appearance: none;
     };
@@ -104,39 +106,20 @@ export const Form = styled.form`
       -moz-appearance: textfield;
       appearance: textfield;
     };
-
-  };
-
-  .divIngredients {
-    margin-top: 0.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 76rem;
-    /* height: 4.8rem; */
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    gap: 24px;
-  }
-
-  div {
-    display: flex;
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     
-    svg {
-      width: 3rem;
-      height: 2.5rem;
-      fill: white;
-    };
+  };
+  
+  label {
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
   };
 
   #dishName {
-    width: 47rem;
+    width: 50rem;
+    height: 4.8rem;
+    padding-left: 2rem;
+    ::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+    };
   };
 
   select {
@@ -148,14 +131,38 @@ export const Form = styled.form`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   };
 
-  #ingredients {
-    width: 73rem;
+  .divIngredients {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 81rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    gap: 24px;
+  }
+
+
+  #price {
+    width: 17rem;
+    height: 4.8rem;
+    padding: 2rem;
+    ::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+    };
   };
 
+
   #description {
-    width: 100.5rem;
+    width: 110rem;
+    max-width: 1000px;
     height: 12rem;
     margin-bottom: 0;
+    resize: none;
     padding: 1rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
@@ -172,7 +179,7 @@ export const Form = styled.form`
 
 `;
 
-export const InputUploadImg = styled.input`
+export const InputForm = styled.input`
   padding-left: 7rem;
   height: 4.8rem;
   margin-top: 0.5rem;
@@ -184,4 +191,4 @@ export const InputUploadImg = styled.input`
     color: ${({ theme }) => theme.COLORS.WHITE};
   };
 
-`
+`;

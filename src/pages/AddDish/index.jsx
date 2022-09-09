@@ -1,16 +1,19 @@
-import { Container, Form, InputUploadImg } from './styles';
+import { Container, Form, InputForm } from './styles';
 import { Footer } from '../../components/Footer';
 import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { ButtonText } from '../../components/ButtonText';
 import { IoIosArrowBack } from 'react-icons/io';
-import { Input } from '../../components/Input';
 import { MdOutlineFileUpload } from 'react-icons/md';
 import { Button } from '../../components/Button';
 import { Ingredients } from '../../components/Ingredients';
+import { DataIngredients } from '../../components/DataIngredients';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export function AddDish() {
+  const navigate = useNavigate(); 
+  const [isPopupVisible, setIsPopupVisible] = useState(false); 
 
-  
   return (
     <Container>
       <HeaderAdmin/>
@@ -23,12 +26,13 @@ export function AddDish() {
         />
       </div>
       <Form>
+      {isPopupVisible ? <DataIngredients onClose={() => {setIsPopupVisible(false)}}/> : null}
         <div className='container'>
           <h1>Add Dish</h1>
           <section>
             <div className='inputLabelPosition'>
               <label htmlFor='dishImg'>Dish IMG</label>
-              <InputUploadImg
+              <InputForm
                 name='dishImg'
                 id='dishImg'
                 type='text'
@@ -38,10 +42,11 @@ export function AddDish() {
               <button id='addDishImgButton'>
                 <MdOutlineFileUpload/>
               </button>
+
             </div>
             <div className='inputLabelPosition'>
               <label htmlFor='dishName'>Name</label>
-              <Input
+              <InputForm
                 name='dishName'
                 id='dishName'
                 type='text'
@@ -64,18 +69,18 @@ export function AddDish() {
                   placeholder="New ingredient" 
                   onChange={e => setNewTag(e.target.value)} 
                   // value={newTag}
-                  // onClick={handleAddTag} 
-                />
+                  onClick={() => setIsPopupVisible(true)}  // 
+                />                
               </div>
             </div>
             <div className='inputLabelPosition'>
               <label htmlFor='price'>Price</label>
-              <Input 
+              <InputForm 
                 type='number'
+                id='price'
                 placeholder='00.00$'
                 maxLength='15' 
-                pattern='([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$'
-              ></Input>
+              />
             </div>
           </section>
           <section>

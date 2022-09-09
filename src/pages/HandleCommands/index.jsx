@@ -66,9 +66,8 @@ const status = [
             <tr>
               <td>
                 <select>
-                  {status.map(status, i => (
+                  {status.map(status => (
                     <option id='status'>
-                      key={i}
                       {status.situation}
                     </option>
                   ))}

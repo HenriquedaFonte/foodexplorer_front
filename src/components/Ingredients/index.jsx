@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { FiPlus, FiX } from "react-icons/fi";
+
 
 import { Container } from './styles';
 
 export function Ingredients({ isNew, value, onClick, ...rest}) {
+  const [ingredients, setIngredients] = useState();
   return(
     <Container isNew={isNew}>
       <input 

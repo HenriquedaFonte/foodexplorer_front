@@ -28,7 +28,7 @@ export const Container = styled.div`
   };
 
   input {
-    width: 14rem;
+    width: 15rem;
     height: 1rem;
     padding: 1.5rem;
 
