@@ -46,8 +46,6 @@ export const Form = styled.form`
   justify-content: center;
   margin: auto;
   flex-direction: column;
-
-
   
   h1 {
     margin-top: 1rem;
@@ -69,14 +67,20 @@ export const Form = styled.form`
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
     font-size: 1.6rem;
-    color: ${({ theme }) => theme.COLORS.WHITE}
-
+    color: ${({ theme }) => theme.COLORS.WHITE};
   };
   
   #dishImg {
-    width: 26rem;
+    width: 100%;
+  };
+
+  
+  h3 {
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   };
   
   #addDishImgButton {
@@ -98,16 +102,9 @@ export const Form = styled.form`
   .inputLabelPosition {
     display: flex;
     flex-direction: column;
-    
-    input[type=number]::-webkit-inner-spin-button { 
-      -webkit-appearance: none;
-    };
-    input[type=number] { 
-      -moz-appearance: textfield;
-      appearance: textfield;
-    };
-    
+    width: 100%;   
   };
+
   
   label {
     color: ${({ theme }) => theme.COLORS.GRAY_300};
@@ -124,7 +121,7 @@ export const Form = styled.form`
 
   select {
     margin-top: 2.2rem;
-    width: 20rem;
+    width: 22rem;
     height: 3rem;
     align-self: center;
     color: ${({ theme }) => theme.COLORS.WHITE};
@@ -135,7 +132,7 @@ export const Form = styled.form`
     margin-top: 0.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 81rem;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -143,12 +140,26 @@ export const Form = styled.form`
     border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     border-radius: 5px;
     padding: 0.5rem 1rem;
-    gap: 24px;
-  }
+  };
 
+  .inputLabelPositionPrice {
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+    width: 20%;
+    
+    input[type=number]::-webkit-inner-spin-button { 
+      -webkit-appearance: none;
+    };
+    input[type=number] { 
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }; 
+  };
 
   #price {
-    width: 17rem;
+    
+    width: 20rem;
     height: 4.8rem;
     padding: 2rem;
     ::placeholder {
@@ -158,7 +169,7 @@ export const Form = styled.form`
 
 
   #description {
-    width: 110rem;
+    /* width: 100rem; */
     max-width: 1000px;
     height: 12rem;
     margin-bottom: 0;
@@ -186,9 +197,18 @@ export const InputForm = styled.input`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
   border-radius: 5px;
+  color: ${({ theme }) => theme.COLORS.WHITE};
   
   ::placeholder {
     color: ${({ theme }) => theme.COLORS.WHITE};
   };
 
+`;
+
+export const UploadImg = styled.div`
+  width: 30rem;
+
+  > label {
+    cursor: pointer;
+  };
 `;

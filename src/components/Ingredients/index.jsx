@@ -1,11 +1,10 @@
-import { useState } from "react";
+
 import { FiPlus, FiX } from "react-icons/fi";
 
 
 import { Container } from './styles';
 
 export function Ingredients({ isNew, value, onClick, ...rest}) {
-  const [ingredients, setIngredients] = useState();
   return(
     <Container isNew={isNew}>
       <input 
@@ -14,14 +13,12 @@ export function Ingredients({ isNew, value, onClick, ...rest}) {
         readOnly={!isNew}
         {...rest}
       />
-
       <button 
         type="button"
         onClick={onClick}
         className={isNew ? 'button-add' : 'button-delete'}
       >
-        {isNew ? <FiPlus /> : <FiX />}
-        
+        {isNew ? <FiPlus /> : <FiX />}        
       </button>
     </Container>
   )

@@ -179,8 +179,8 @@ export function Home() {
           </div>
         </div>
         <div className="section">
-          {data.map(({ category, products }) => (
-            <Section category={category} products={products} />
+          {data.map(({ category, products, index }) => (
+            <Section category={category} products={products} key={index} />
           ))};
         </div>
       </div>

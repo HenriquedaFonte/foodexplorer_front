@@ -34,7 +34,7 @@ export default createGlobalStyle`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   }
 
-  body, input, button, textarea, a {
+  body, input, button, textarea, a, label, h3 {
     -webkit-fonte-smoothing: antialiased;
     outline: none;
   };

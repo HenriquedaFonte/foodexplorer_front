@@ -1,12 +1,30 @@
-import { Container, Form, InputForm } from './styles';
+import { Container, InputForm, UploadImg } from './styles';
 import { ButtonText } from '../../components/ButtonText';
-import { MdOutlineFileUpload } from 'react-icons/md';
 import { IoIosArrowBack } from 'react-icons/io';
 import { Button } from '../../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-export function DataIngredients({onClose= () => {}, children}) {
-  const navigate = useNavigate();
+
+
+export function DataIngredients({onClose, onSetIngredients, children}) {
+
+  const [newIngredientName, setNewIngredientName] = useState('');
+  const [newIngredientImg, setNewIngredientImg] = useState('');
+
+
+  function handleAddIngredient() {
+
+    const newIngredient = {
+      name: newIngredientName,
+      avatar: newIngredientImg
+    };
+
+    onSetIngredients(newIngredient);
+
+  };
+
+
+
   return (
     <Container>
       <div className="containerPopup">
@@ -19,31 +37,35 @@ export function DataIngredients({onClose= () => {}, children}) {
           />
           <h1>Add Ingredients</h1>
         </div>
-        <Form>
+        <div className='formIngredients'>
           <div className='inputLabelPosition'>
-            <label htmlFor='ingredientImg'>Ingredient IMG</label>
-            <InputForm
-              name='ingredientImg'
-              id='ingredientImg'
-              type='text'
-              readOnly={true}
-              placeholder='Select image'
-            />
-            <button id='addingredientImgButton'>
-              <MdOutlineFileUpload/>
-            </button>
+            <UploadImg>
+              <h3>Ingredient IMG</h3>
+              <label htmlFor='ingredientImg' id='ingredientImg' placeholder='Chosen Image'> 
+                <input 
+                  type='file' 
+                  name='ingredientImg'
+                  onChange={e => setNewIngredientImg(e.target.value)}
+                />
+              </label>
+            </UploadImg>
           </div>
           <div className='inputLabelPosition'>
             <label htmlFor='dishName'>Name</label>
             <InputForm
-              name='ingredientName'
-              id='ingredientName'
               type='text'
+              name='ingredientName'
+              id='ingredientName'              
+              onChange={e => setNewIngredientName(e.target.value)} 
               placeholder='Ex.: Tomato'                      
             />
           </div>               
-        </Form>
-        <Button title='Add' id='buttonAdd'/>
+        </div>
+        <Button 
+          title='Add' 
+          id='buttonAdd' 
+          onClick={handleAddIngredient}
+        />
       </div>
     </Container>
   );

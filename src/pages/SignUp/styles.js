@@ -57,7 +57,6 @@ export const Container = styled.div`
       font-weight: 700;
     };
   };
-
 };
 `;
 
@@ -105,15 +104,16 @@ export const Form = styled.form`
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     };
+
     button {
       position: absolute;
+
       margin-top: 0.8rem;
-      margin-left: 190px;
+      margin-left: 180px;
       border: none;
 
       width: 24px;
-      height: 24px;
-      
+      height: 24px;      
     };
  };
 

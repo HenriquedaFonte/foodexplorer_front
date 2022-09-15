@@ -63,9 +63,22 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
   };
 
+  .uploadImg {    
+    height: 4.8rem;
+  };
+
+  h3 {
+    
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+  };
+
   #ingredientImg {
     width: 16rem;
-    font-size: 1.5rem;
+    height: 4.8rem;
+    
+    font-size: 2rem;
   };
   
   #addingredientImgButton {
@@ -98,15 +111,17 @@ export const Container = styled.div`
     font-size: 2.5rem;
     margin-bottom: 1rem;
   };
-
-`;
-
-export const Form = styled.form`
+  
+  .formIngredients {
   display: flex;
   flex-direction: row;
   margin: auto;
   gap: 2rem;
-`
+};
+
+`;
+
+
 
 export const InputForm = styled.input`
   padding-left: 4rem;
@@ -118,5 +133,23 @@ export const InputForm = styled.input`
   
   ::placeholder {
     color: ${({ theme }) => theme.COLORS.WHITE};
+  };
+`;
+
+export const UploadImg = styled.div`
+  position: relative;
+  margin: 0 auto 1rem;
+
+  width: 45rem;
+
+  label {
+    width: 19.8rem;
+    height: 4.8rem;
+
+    align-items: center;
+    justify-content: center;
+
+
+    cursor: pointer;
   };
 `;

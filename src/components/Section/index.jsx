@@ -9,6 +9,11 @@ import { FoodCard } from '../FoodCard'
 import { Container } from './styles'
 
 export function Section({category, products}) {
+  function handleFavorites() {
+    setIsFavorite(!isFavorite);    
+  };
+
+
   return (
     <Container>
       <div className="sectionTitle">
@@ -35,6 +40,7 @@ export function Section({category, products}) {
                 name={product.name}
                 description={product.description}
                 price={product.price}
+                onSetFavorites={handleFavorites}
               />
           </SwiperSlide>
           ))};   

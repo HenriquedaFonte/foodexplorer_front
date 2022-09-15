@@ -29,7 +29,7 @@ export const Container = styled.div`
     };
 
     >button:nth-child(1) {
-      height: 48px;
+      height: 4,8rem;
     }
   };
 
@@ -101,17 +101,19 @@ export const Form = styled.form`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 56px;
-    margin-top: 4.5px;
+    height: 5.6rem;
+    margin-top: 0.45rem;
 
     input {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     };
+
     button {
       position: absolute;
+
       margin-top: 0.8rem;
-      margin-left: 190px;
+      margin-left: 180px;
       border: none;
 
       width: 24px;

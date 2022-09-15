@@ -169,7 +169,6 @@ export function Favorites() {
 
   const [ productFiltere, setProductFiltered ] = useState([]);
   const product = data.filter(product => (product.favorite = true));
-
   const productFiltered = product.map(product => (console.log(productFiltered)));
 
 
@@ -185,8 +184,8 @@ export function Favorites() {
           </div>
         </div>
         <div className="section">
-          {data.map(({ category, products }) => (
-            <Section category={category} products={products} />
+          {data.map(({ category, products, index }) => (
+            <Section category={category} products={products} key={index} />
           ))};
         </div>
       </div>

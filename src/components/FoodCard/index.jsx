@@ -4,18 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Heart } from './styles';
 import { BiPlus, BiMinus } from 'react-icons/bi';
 import { Button } from '../Button';
+import { api } from '../../services/api';
 
-export function FoodCard({ id, img: Img, name, description, price, ...rest }) {
+export function FoodCard({ id, img: Img, name, description, price, handleFavorites, ...rest }) {
   const navigate = useNavigate();
   const [ isFavorite, setIsFavorite] = useState(false);
   const [ counter, setCounter] = useState(1);
   
+  function handleFavorites(){
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <Container>
       <Heart
         isFavorite={isFavorite}
-        onClick={() => setIsFavorite(!isFavorite)}
+        onClick={handleFavorites}
       >
       </Heart>
       <a onClick={() => navigate(`/productdetail/${id}`)}>
