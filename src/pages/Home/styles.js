@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import cart from '../../assets/cart.svg';
 
 
 export const Container = styled.div`
@@ -48,6 +49,7 @@ export const Container = styled.div`
           color: ${({ theme }) => theme.COLORS.WHITE_100}; 
         }; 
       };
+
   };
 
   .section{
@@ -55,5 +57,9 @@ export const Container = styled.div`
   };
 
 };
-
 `;
+
+export const Cart = styled.div`
+  
+
+`

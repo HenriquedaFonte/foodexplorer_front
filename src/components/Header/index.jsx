@@ -8,10 +8,12 @@ import logoIcon from '../../assets/Polygon.png';
 import { ButtonText } from '../ButtonText';
 import { Input } from '../Input';
 import { useAuth } from '../../hooks/auth';
+import Cart from '../../assets/cart.svg';
 
 export function Header() {
   const { signOut } = useAuth();
   const navigate = useNavigate();
+
   return (
     <Container>
       <div className="headerContent">  
@@ -37,6 +39,10 @@ export function Header() {
             Commands
           </button>
         </Link>
+        <div className="cart" >
+          <label>0</label> 
+          <img src={Cart} onClick={() => navigate('/Cart')}/>
+        </div>
         <div className="logOut" onClick={signOut}>
           <MdLogout size={30} fill="white"/>
         </div>  

@@ -38,15 +38,10 @@ export const Container = styled.div`
         justify-content: center;
 
         h1 {
-          font-size: 4rem;
+          font-size: 5rem;
           font-weight: 500;
           color: ${({ theme }) => theme.COLORS.WHITE_100}; 
         };
-
-        p {
-          font-size: 1.6rem;
-          color: ${({ theme }) => theme.COLORS.WHITE_100}; 
-        }; 
       };
   };
 

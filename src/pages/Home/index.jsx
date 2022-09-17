@@ -18,6 +18,7 @@ import teDAutunno from '../../assets/drink2.png'
 import espresso from '../../assets/drink3.png'
 import pomoBourbon from '../../assets/drink4.png'
 
+
 export function Home() {
   const data = [
     {
@@ -170,6 +171,7 @@ export function Home() {
   return (
     <Container>
       <Header />
+
       <div className="homeContent">
         <div className="banner">
           <img src={bannerImg} />

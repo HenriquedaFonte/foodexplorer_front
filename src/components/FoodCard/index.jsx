@@ -1,10 +1,10 @@
 import {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BiPlus, BiMinus } from 'react-icons/bi';
 
 import { Container, Heart } from './styles';
-import { BiPlus, BiMinus } from 'react-icons/bi';
 import { Button } from '../Button';
-import { api } from '../../services/api';
+
 
 export function FoodCard({ id, img: Img, name, description, price, handleFavorites, ...rest }) {
   const navigate = useNavigate();

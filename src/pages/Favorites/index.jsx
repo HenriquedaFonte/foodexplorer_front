@@ -167,9 +167,9 @@ export function Favorites() {
     }
   ];
 
-  const [ productFiltere, setProductFiltered ] = useState([]);
+  const [ productFiltered, setProductFiltered ] = useState([]);
   const product = data.filter(product => (product.favorite = true));
-  const productFiltered = product.map(product => (console.log(productFiltered)));
+  // const productFiltered = product.map(product => (console.log(productFiltered)));
 
 
   return (
@@ -179,8 +179,7 @@ export function Favorites() {
         <div className="banner">
           <img src={bannerImg} />
           <div className="textBanner">
-            <h1>Incredible flavors</h1>
-            <p>Highly selected ingredients</p>
+            <h1>Favorite Dishes</h1>
           </div>
         </div>
         <div className="section">

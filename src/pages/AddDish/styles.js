@@ -157,8 +157,7 @@ export const Form = styled.form`
     }; 
   };
 
-  #price {
-    
+  #price {    
     width: 20rem;
     height: 4.8rem;
     padding: 2rem;

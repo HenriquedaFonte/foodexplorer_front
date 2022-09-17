@@ -49,9 +49,10 @@ export const Container = styled.div`
     };
 
     #command {
-      width: 18.6rem;
+      width: 16.6rem;
       height: 5.6rem;
       margin: 0;
+      margin-right: 2rem;
       padding: 1.2rem 1.3rem;
       display: flex;
       align-items: center;
@@ -63,6 +64,29 @@ export const Container = styled.div`
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BUTTON_HEADER};
       color: ${({ theme }) => theme.COLORS.WHITE};      
     };
+
+    .cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: ${({ theme }) => theme.COLORS.WHITE};
+      width: 3rem;
+      height: 3.5rem;
+      cursor: pointer;
+
+      label {
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        position: absolute;
+        margin-left: 1rem;
+        margin-bottom: 1.8rem;
+        font-size: 1.6rem;
+      };
+
+      img {
+        
+        width: 3.5rem;        
+      };
+  }
 
     .logOut {
       cursor: pointer;

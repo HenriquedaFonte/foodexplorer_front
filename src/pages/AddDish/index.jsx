@@ -4,7 +4,6 @@ import { Footer } from '../../components/Footer';
 import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { ButtonText } from '../../components/ButtonText';
 import { IoIosArrowBack } from 'react-icons/io';
-import { MdOutlineFileUpload } from 'react-icons/md';
 import { Button } from '../../components/Button';
 import { Ingredients } from '../../components/Ingredients';
 import { DataIngredients } from '../../components/DataIngredients';
