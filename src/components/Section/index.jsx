@@ -7,12 +7,16 @@ import { Navigation } from "swiper";
 
 import { FoodCard } from '../FoodCard'
 import { Container } from './styles'
+import { useState } from "react";
 
-export function Section({category, products}) {
-  function handleFavorites() {
-    setIsFavorite(!isFavorite);    
+export function Section({category, products, onSetfavorites, children}) {
+  const [favoritesList, setfavoritesList] = useState([]);
+
+  function handleSetfavorites(favorites) {
+    setfavoritesList([favorites]);    
+    onSetfavorites(favoritesList);
+    
   };
-
 
   return (
     <Container>
@@ -31,8 +35,8 @@ export function Section({category, products}) {
           className="mySwiper"
         >   
         <div className="shadeLeft"></div>    
-        {products.map(product => (
-          <SwiperSlide className="cards">            
+        {products.map((product, index) => (
+          <SwiperSlide className="cards" key={index}> 
               <FoodCard
                 id={product.id}
                 favorite={product.favorite}
@@ -40,7 +44,7 @@ export function Section({category, products}) {
                 name={product.name}
                 description={product.description}
                 price={product.price}
-                onSetFavorites={handleFavorites}
+                onSetfavorites={handleSetfavorites}
               />
           </SwiperSlide>
           ))};   

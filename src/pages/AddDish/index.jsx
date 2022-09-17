@@ -43,6 +43,10 @@ export function AddDish() {
     alert('New Dish created');
     setDishImg('');
     setDishName('');
+    setDishCategory('');
+    setIngredientsList('');
+    setDishPrice('');
+    setDishDescription('');
   };
 
   return (
@@ -68,6 +72,7 @@ export function AddDish() {
                 <input 
                   type='file' 
                   name='ingredientImg'
+                  value={avatar}
                   onChange={e => setDishImg(e.target.value)}
                 />
               </label>
@@ -80,6 +85,7 @@ export function AddDish() {
                 id='dishName'
                 type='text'
                 placeholder='Ex.: Caesar Salad'
+                value={title}
                 onChange={e => setDishName(e.target.value)}
               />
             </div>
@@ -97,7 +103,7 @@ export function AddDish() {
             <div className='inputLabelPosition'>
               <label htmlFor='ingredients'>Ingredients</label>
               <div className='divIngredients'>
-                {
+                { ingredientsList &&
                   ingredientsList.map((ingredientName, index) => (
                     <Ingredients
                       key={index}
@@ -121,6 +127,7 @@ export function AddDish() {
                 id='price'
                 placeholder='00.00$'
                 maxLength='15' 
+                value={price}
                 onChange={e => setDishPrice(e.target.value)}
               />
             </div>
@@ -133,6 +140,7 @@ export function AddDish() {
                 id='description'
                 type='textarea'
                 placeholder='Briefly talk about the dish, its ingredients and composition'
+                value={description}
                 onChange={e => setDishDescription(e.target.value)}
               />
             </div>

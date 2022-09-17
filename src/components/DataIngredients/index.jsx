@@ -16,11 +16,13 @@ export function DataIngredients({onClose, onSetIngredients, children}) {
 
     const newIngredient = {
       name: newIngredientName,
-      avatar: newIngredientImg
+      avatar: newIngredientImg  
     };
+console.log(newIngredient)
 
     onSetIngredients(newIngredient);
-
+    setNewIngredientImg('');
+    setNewIngredientName('');
   };
 
 
@@ -45,6 +47,7 @@ export function DataIngredients({onClose, onSetIngredients, children}) {
                 <input 
                   type='file' 
                   name='ingredientImg'
+                  value={newIngredientImg}
                   onChange={e => setNewIngredientImg(e.target.value)}
                 />
               </label>
@@ -55,7 +58,8 @@ export function DataIngredients({onClose, onSetIngredients, children}) {
             <InputForm
               type='text'
               name='ingredientName'
-              id='ingredientName'              
+              id='ingredientName'
+              value={newIngredientName}              
               onChange={e => setNewIngredientName(e.target.value)} 
               placeholder='Ex.: Tomato'                      
             />

@@ -50,8 +50,8 @@ const commands = [
             </tr>
           </thead>
           <tbody>                     
-          {commands.map(data => (
-            <tr>
+          {commands.map((data, index) => (
+            <tr key={index}>
               <td>
                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle r="4" transform="matrix(1 0 0 -1 4.46118 4.57812)" fill={data.fill}/>

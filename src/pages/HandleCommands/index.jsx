@@ -62,12 +62,12 @@ const status = [
             </tr>
           </thead>
           <tbody>                     
-          {commands.map(data => (
-            <tr>
+          {commands.map((data, index) => (
+            <tr key={index}>
               <td>
                 <select>
-                  {status.map(status => (
-                    <option id='status'>
+                  {status.map((status, index) => (
+                    <option id='status' key={index}>
                       {status.situation}
                     </option>
                   ))}

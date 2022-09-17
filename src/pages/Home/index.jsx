@@ -17,6 +17,7 @@ import passionFruitDrink from '../../assets/drink1.png'
 import teDAutunno from '../../assets/drink2.png'
 import espresso from '../../assets/drink3.png'
 import pomoBourbon from '../../assets/drink4.png'
+import { useState } from 'react'
 
 
 export function Home() {
@@ -167,22 +168,32 @@ export function Home() {
     }
   ];
 
+  const [favoritesList, setfavoritesList] = useState([]);
+
+  function handleSetfavorites(favorites) {
+    setfavoritesList([favorites]);     
+  };
+
 
   return (
     <Container>
       <Header />
-
-      <div className="homeContent">
-        <div className="banner">
+      <div className='homeContent'>
+        <div className='banner'>
           <img src={bannerImg} />
-          <div className="textBanner">
+          <div className='textBanner'>
             <h1>Incredible flavors</h1>
             <p>Highly selected ingredients</p>
           </div>
         </div>
-        <div className="section">
-          {data.map(({ category, products, index }) => (
-            <Section category={category} products={products} key={index} />
+        <div className='section'>
+          {data.map(({ category, products }) => (
+            <Section 
+              key={category} 
+              category={category} 
+              products={products} 
+              onSetfavorites={handleSetfavorites}
+            />
           ))};
         </div>
       </div>

@@ -1,25 +1,41 @@
-import {  useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiPlus, BiMinus } from 'react-icons/bi';
 
 import { Container, Heart } from './styles';
 import { Button } from '../Button';
 
+import { useAuth } from '../../hooks/auth';
 
-export function FoodCard({ id, img: Img, name, description, price, handleFavorites, ...rest }) {
+
+export function FoodCard({ id, img: Img, name, description, price, handleFavorites, onSetfavorites, children, ...rest }) {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [ isFavorite, setIsFavorite] = useState(false);
   const [ counter, setCounter] = useState(1);
+  const [ favorites, setFavorites] = useState([]);
+   
+
+  function handleFavorites(){    
+    setIsFavorite(!isFavorite);  
+    // localStorage.setItem("@foodexplorer:favorites", JSON.stringify(id)); 
+    setFavorites([...favorites, id]);
+   
+
+    onSetfavorites(favorites);
+    console.log(favorites)
+  };
   
-  function handleFavorites(){
-    setIsFavorite(!isFavorite);
+  function handleDeleteFavorites(id){    
+    setIsFavorite(!isFavorite);  
+    setFavorites(prevstate => prevstate.filter(favorites => favorites !== id));
   };
 
   return (
     <Container>
       <Heart
         isFavorite={isFavorite}
-        onClick={handleFavorites}
+        onClick={!isFavorite ? () => handleFavorites(id) : () => handleDeleteFavorites(id)}
       >
       </Heart>
       <a onClick={() => navigate(`/productdetail/${id}`)}>
