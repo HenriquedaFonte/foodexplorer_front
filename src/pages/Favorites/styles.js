@@ -6,7 +6,12 @@ export const Container = styled.div`
     height: 100%;
     margin: 0 auto;
 
+    h1 {
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+    }
+
     .homeContent {
+      grid-area: content;
       height: 100%;
       max-width: 1120px;
       margin: 0 auto;
@@ -44,11 +49,25 @@ export const Container = styled.div`
         };
       };
   };
+};
+
+  .title {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+  }
 
   .section{
-    height: 100%;
+    margin-top: 15rem;
+    height: 70%;
+    h1 {
+      font-size: 3rem;
+    }
   };
 
-};
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+
 
 `;

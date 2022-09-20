@@ -166,18 +166,37 @@ export function Home() {
         }
       ]
     }
-  ];
+  ];  
+  
+  // const [favoritesList, setFavoritesList] = useState([]); 
+  let favoriteList = [];
 
-  const [favoritesList, setfavoritesList] = useState([]);
+  function handleSetfavorites(id) {
 
-  function handleSetfavorites(favorites) {
-    setfavoritesList([favorites]);     
+    if(favoriteList.includes(id)) {
+      favoriteList = (favoriteList.filter(favoriteId => favoriteId !== id));
+    }else {
+      favoriteList =([...favoriteList, id]);       
+    };
+    addLocalStorage()
+    console.log('primeiro', favoriteList);
+  };
+
+  // console.log('new favorite', newFavoritesList)
+  console.log('segundo' , favoriteList);
+  
+  function addLocalStorage() {
+    localStorage.setItem('@foodexplorer:favorites', JSON.stringify(favoriteList));
+  };
+
+  function addCart(value){
+
   };
 
 
   return (
     <Container>
-      <Header />
+      <Header onSetAddCart={addCart}/>
       <div className='homeContent'>
         <div className='banner'>
           <img src={bannerImg} />
@@ -192,7 +211,8 @@ export function Home() {
               key={category} 
               category={category} 
               products={products} 
-              onSetfavorites={handleSetfavorites}
+              onSetFavorites={handleSetfavorites}   
+                       
             />
           ))};
         </div>

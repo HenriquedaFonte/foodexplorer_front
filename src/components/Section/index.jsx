@@ -9,14 +9,13 @@ import { FoodCard } from '../FoodCard'
 import { Container } from './styles'
 import { useState } from "react";
 
-export function Section({category, products, onSetfavorites, children}) {
-  const [favoritesList, setfavoritesList] = useState([]);
+export function Section({category, products, onSetFavorites}) {
 
-  function handleSetfavorites(favorites) {
-    setfavoritesList([favorites]);    
-    onSetfavorites(favoritesList);
-    
+  function handleSetfavorites(id) {
+    onSetFavorites(id);
   };
+
+  console.log('favorite products', products)
 
   return (
     <Container>
@@ -44,7 +43,7 @@ export function Section({category, products, onSetfavorites, children}) {
                 name={product.name}
                 description={product.description}
                 price={product.price}
-                onSetfavorites={handleSetfavorites}
+                onSetFavorites={handleSetfavorites}
               />
           </SwiperSlide>
           ))};   

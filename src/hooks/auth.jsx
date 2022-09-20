@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from 'react';
 
 import { api } from '../services/api';
 
@@ -9,38 +9,38 @@ function AuthProvider({ children }) {
 
   async function signIn({ email, password}) {
     try {
-      const response = await api.post("/sessions", { email, password });
+      const response = await api.post('/sessions', { email, password });
       const { user, token } = response.data;
       
-      localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
-      localStorage.setItem("@foodexplorer:token", token);
+      localStorage.setItem('@foodexplorer:user', JSON.stringify(user));
+      localStorage.setItem('@foodexplorer:token', token);
 
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({ user, token });
     }catch (error) {
       if (error.response) {
         alert(error.response.data.message);
       }else {
-        alert("Login error!")
+        alert('Login error!')
       };
     };
   };
 
   function signOut() {
-  localStorage.removeItem("@foodexplorer:token");
-  localStorage.removeItem("@foodexplorer:user");
+  localStorage.removeItem('@foodexplorer:token');
+  localStorage.removeItem('@foodexplorer:user');
 
   setData({});
   };
 
 
   useEffect(() => {
-    const token = localStorage.getItem("@foodexplorer:token");
-    const user = localStorage.getItem("@foodexplorer:user");
+    const token = localStorage.getItem('@foodexplorer:token');
+    const user = localStorage.getItem('@foodexplorer:user');
 
     if (token && user) {
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({
         token,

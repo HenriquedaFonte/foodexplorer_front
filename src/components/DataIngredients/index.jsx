@@ -18,8 +18,7 @@ export function DataIngredients({onClose, onSetIngredients, children}) {
       name: newIngredientName,
       avatar: newIngredientImg  
     };
-console.log(newIngredient)
-
+  
     onSetIngredients(newIngredient);
     setNewIngredientImg('');
     setNewIngredientName('');

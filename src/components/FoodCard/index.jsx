@@ -8,27 +8,21 @@ import { Button } from '../Button';
 import { useAuth } from '../../hooks/auth';
 
 
-export function FoodCard({ id, img: Img, name, description, price, handleFavorites, onSetfavorites, children, ...rest }) {
+export function FoodCard({ id, img: Img, name, description, price,  onSetFavorites }) {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [ isFavorite, setIsFavorite] = useState(false);
   const [ counter, setCounter] = useState(1);
-  const [ favorites, setFavorites] = useState([]);
-   
 
-  function handleFavorites(){    
-    setIsFavorite(!isFavorite);  
+   
+  function handleFavorites(){        
+    setIsFavorite(!isFavorite);
+    onSetFavorites(id);    
     // localStorage.setItem("@foodexplorer:favorites", JSON.stringify(id)); 
-    setFavorites([...favorites, id]);
-   
-
-    onSetfavorites(favorites);
-    console.log(favorites)
   };
   
   function handleDeleteFavorites(id){    
     setIsFavorite(!isFavorite);  
-    setFavorites(prevstate => prevstate.filter(favorites => favorites !== id));
+    onSetFavorites(id);
   };
 
   return (

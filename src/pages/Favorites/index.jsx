@@ -17,16 +17,19 @@ import passionFruitDrink from '../../assets/drink1.png'
 import teDAutunno from '../../assets/drink2.png'
 import espresso from '../../assets/drink3.png'
 import pomoBourbon from '../../assets/drink4.png'
-import { useState } from 'react'
+import { useState, useStyles } from 'react'
 
 export function Favorites() {
+  const newData = [];
+
   const data = [
     {
       category: 'Main Menu',
       products: [
         {
           id: 1,
-          favorite: true,
+          favorite: false,
+          category: 'Main dish',
           img: `${shrimpPasta}`,
           name: 'Spaguetti Gambe',
           description: 'Fresh pasta with toast shrimps and pesto.',
@@ -34,7 +37,8 @@ export function Favorites() {
         },
         {
           id: 2,
-          favorite: true,
+          favorite: false,
+          category: 'Main dish',
           img: `${parmaToast}`,
           name: 'Parma Toast',
           description: 'Parma ham and arugula in a naturally leavened bread.',
@@ -43,6 +47,7 @@ export function Favorites() {
         {
           id: 3,
           favorite: false,
+          category: 'Main dish',
           img: `${molaSalad}`,
           name: 'Mola Salad',
           description:
@@ -52,6 +57,7 @@ export function Favorites() {
         {
           id: 4,
           favorite: false,
+          category: 'Main dish',
           img: `${ravanelloSalad}`,
           name: 'Ravanello Salad',
           description:
@@ -61,6 +67,7 @@ export function Favorites() {
         {
           id: 5,
           favorite: false,
+          category: 'Main dish',
           img: `${ravanelloSalad}`,
           name: 'Ravanello Salad',
           description:
@@ -75,6 +82,7 @@ export function Favorites() {
         {
           id: 6,
           favorite: false,
+          category: 'Dessert',
           img: `${prugnaPie}`,
           name: 'Prugna Pie',
           description: 'Fresh pasta with toast shrimps, pesto and arugula.',
@@ -83,6 +91,7 @@ export function Favorites() {
         {
           id: 7,
           favorite: false,
+          category: 'Dessert',
           img: `${peachyPastrie}`,
           name: 'Peachy Pastrie',
           description: 'Parma ham and arugula in a naturally leavened bread.',
@@ -91,6 +100,7 @@ export function Favorites() {
         {
           id: 8,
           favorite: false,
+          category: 'Dessert',
           img: `${macarons}`,
           name: 'Macarons',
           description:
@@ -100,6 +110,7 @@ export function Favorites() {
         {
           id: 9,
           favorite: false,
+          category: 'Dessert',
           img: `${damascusCake}`,
           name: 'Damascus Cake',
           description:
@@ -109,6 +120,7 @@ export function Favorites() {
         {
           id: 10,
           favorite: false,
+          category: 'Dessert',
           img: `${damascusCake}`,
           name: 'Damascus Cake',
           description:
@@ -123,6 +135,7 @@ export function Favorites() {
         {
           id: 11,
           favorite: false,
+          category: 'Drinks',
           img: `${passionFruitDrink}`,
           name: 'Spaguetti Gambe',
           description: 'Fresh pasta with toast shrimps, pesto and arugula.',
@@ -131,6 +144,7 @@ export function Favorites() {
         {
           id: 12,
           favorite: false,
+          category: 'Drinks',
           img: `${espresso}`,
           name: 'Espresso',
           description: 'Parma ham and arugula in a naturally leavened bread.',
@@ -139,6 +153,7 @@ export function Favorites() {
         {
           id: 13,
           favorite: false,
+          category: 'Drinks',
           img: `${teDAutunno}`,
           name: 'Tè d Autunno',
           description:
@@ -148,6 +163,7 @@ export function Favorites() {
         {
           id: 14,
           favorite: false,
+          category: 'Drinks',
           img: `${pomoBourbon}`,
           name: 'Pomo Bourbon',
           description:
@@ -157,6 +173,7 @@ export function Favorites() {
         {
           id: 15,
           favorite: false,
+          category: 'Drinks',
           img: `${pomoBourbon}`,
           name: 'Pomo Bourbon',
           description:
@@ -167,11 +184,21 @@ export function Favorites() {
     }
   ];
 
-  const [ productFiltered, setProductFiltered ] = useState([]);
-  const product = data.filter(product => (product.favorite = true));
-  // const productFiltered = product.map(product => (console.log(productFiltered)));
+  const favoritesLocal = JSON.parse(localStorage.getItem('@foodexplorer:favorites'));
+  let newFavoriteList = data.reduce((prev, next) => prev.concat(next.products), []);
 
+  if(favoritesLocal){
+    favoritesLocal.forEach(favorited => updateFavorites(favorited));
+  };
 
+  function updateFavorites(favorite) {
+    newData.push(newFavoriteList.find(obj => obj.id === favorite));
+  }; 
+
+    // console.log('local storage', favoritesLocal);
+    console.log('new data',newData);
+    // console.log(newData[0].name);
+  
   return (
     <Container>
       <Header />
@@ -181,14 +208,15 @@ export function Favorites() {
           <div className="textBanner">
             <h1>Favorite Dishes</h1>
           </div>
+          <div className="title">
+            <h1>Favorites</h1>
+          </div>
         </div>
-        <div className="section">
-          {data.map(({ category, products, index }) => (
-            <Section category={category} products={products} key={index} />
-          ))};
+        <div className="section">                      
+            <Section products={newData} />          
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </Container>
   );
 };
