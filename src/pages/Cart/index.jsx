@@ -6,42 +6,28 @@ import { Container, Form } from './styles';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { CartItem } from '../../components/CartItem';
-import shrimpPasta from '../../assets/food2.png'
 import qrCode from '../../assets/qrCode.svg'
 import { useState } from 'react';
 import { Button } from '../../components/Button';
 
+
 export function Cart() {
   const [isSelected, setIsSelected] = useState(true);
-  const cartProducts = [
-    {
-      img:`${shrimpPasta}`,
-      qtd: 1,
-      name: 'ShrimpPasta',
-      price: 25.97      
-    },
-    {
-      img:`${shrimpPasta}`,
-      qtd: 1,
-      name: 'ShrimpPasta',
-      price: 25.97      
-    },    {
-      img:`${shrimpPasta}`,
-      qtd: 1,
-      name: 'ShrimpPasta',
-      price: 25.97      
-    },
-    {
-      img:`${shrimpPasta}`,
-      qtd: 1,
-      name: 'ShrimpPasta',
-      price: 25.97      
-    }
-  ];
+  const cartProductsList = []
+
+  const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
+  if(cartProductsListLocal){
+    cartProductsListLocal.forEach(product => updateCartList(product));
+  };
+
+  function updateCartList(product) {
+    cartProductsList.push({product});
+  }; 
+
 
   let valueTotal = 0;
-  for (let product of cartProducts) {
-    valueTotal = valueTotal + product.qtd * product.price;
+  for (let {product} of cartProductsList) {
+    valueTotal = valueTotal + product.amount * product.price;
   };
 
   
@@ -56,8 +42,9 @@ export function Cart() {
             autoHide={false}
             style={{ maxHeight: 400, maxWidth: 444 }}
           >
-            {cartProducts.map((item, index) => (
-              <CartItem items={item} key={index}/>
+            {cartProductsList &&
+              cartProductsList.map((product, index) => (
+              <CartItem items={product} key={index}/>
             ))}
 
           </SimpleBar>

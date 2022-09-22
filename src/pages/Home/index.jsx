@@ -31,7 +31,7 @@ export function Home() {
           img: `${shrimpPasta}`,
           name: 'Spaguetti Gambe',
           description: 'Fresh pasta with toast shrimps and pesto.',
-          price: '34.97$'
+          price: 34.97
         },
         {
           id: 2,
@@ -39,7 +39,7 @@ export function Home() {
           img: `${parmaToast}`,
           name: 'Parma Toast',
           description: 'Parma ham and arugula in a naturally leavened bread.',
-          price: '14.97$'
+          price: 14.97
         },
         {
           id: 3,
@@ -48,7 +48,7 @@ export function Home() {
           name: 'Mola Salad',
           description:
             'Tomatoes, cilantro, cucumber, red onion. Fresh and seasoned.',
-          price: '9.97$'
+          price: 9.97
         },
         {
           id: 4,
@@ -57,7 +57,7 @@ export function Home() {
           name: 'Ravanello Salad',
           description:
             'Radishes, greens and sweet and sour sauce sprinkled with sesame',
-          price: '23.97$'
+          price: 23.97
         },
         {
           id: 5,
@@ -66,7 +66,7 @@ export function Home() {
           name: 'Ravanello Salad',
           description:
             'Radishes, greens and sweet and sour sauce sprinkled with sesame',
-          price: '23.97$'
+          price: 23.97
         }
       ]
     },
@@ -79,7 +79,7 @@ export function Home() {
           img: `${prugnaPie}`,
           name: 'Prugna Pie',
           description: 'Fresh pasta with toast shrimps, pesto and arugula.',
-          price: '34.97$'
+          price: 34.97
         },
         {
           id: 7,
@@ -87,7 +87,7 @@ export function Home() {
           img: `${peachyPastrie}`,
           name: 'Peachy Pastrie',
           description: 'Parma ham and arugula in a naturally leavened bread.',
-          price: '14.97$'
+          price: 14.97
         },
         {
           id: 8,
@@ -96,7 +96,7 @@ export function Home() {
           name: 'Macarons',
           description:
             'Tomatoes, cilantro, cucumber, red onion. Fresh and seasoned.',
-          price: '9.97$'
+          price: 9.97
         },
         {
           id: 9,
@@ -105,7 +105,7 @@ export function Home() {
           name: 'Damascus Cake',
           description:
             'Radishes, greens and sweet and sour sauce sprinkled with sesame',
-          price: '23.97$'
+          price: 23.97
         },
         {
           id: 10,
@@ -114,7 +114,7 @@ export function Home() {
           name: 'Damascus Cake',
           description:
             'Radishes, greens and sweet and sour sauce sprinkled with sesame',
-          price: '23.97$'
+          price: 23.97
         }
       ]
     },
@@ -127,7 +127,7 @@ export function Home() {
           img: `${passionFruitDrink}`,
           name: 'Spaguetti Gambe',
           description: 'Fresh pasta with toast shrimps, pesto and arugula.',
-          price: '34.97$'
+          price: 34.97
         },
         {
           id: 12,
@@ -135,7 +135,7 @@ export function Home() {
           img: `${espresso}`,
           name: 'Espresso',
           description: 'Parma ham and arugula in a naturally leavened bread.',
-          price: '14.97$'
+          price: 14.97
         },
         {
           id: 13,
@@ -144,7 +144,7 @@ export function Home() {
           name: 'Tè d Autunno',
           description:
             'Tomatoes, cilantro, cucumber, red onion. Fresh and seasoned.',
-          price: '9.97$'
+          price: 9.97
         },
         {
           id: 14,
@@ -153,7 +153,7 @@ export function Home() {
           name: 'Pomo Bourbon',
           description:
             'Radishes, greens and sweet and sour sauce sprinkled with sesame',
-          price: '23.97$'
+          price: 23.97
         },
         {
           id: 15,
@@ -162,14 +162,14 @@ export function Home() {
           name: 'Pomo Bourbon',
           description:
             'Radishes, greens and sweet and sour sauce sprinkled with sesame',
-          price: '23.97$'
+          price: 23.97
         }
       ]
     }
   ];  
   
-  // const [favoritesList, setFavoritesList] = useState([]); 
   let favoriteList = [];
+  let cartProductsList = [];
 
   function handleSetfavorites(id) {
 
@@ -178,25 +178,35 @@ export function Home() {
     }else {
       favoriteList =([...favoriteList, id]);       
     };
-    addLocalStorage()
-    console.log('primeiro', favoriteList);
+    addLocalStorageFavorites()
   };
-
-  // console.log('new favorite', newFavoritesList)
-  console.log('segundo' , favoriteList);
   
-  function addLocalStorage() {
+  function addLocalStorageFavorites() {
     localStorage.setItem('@foodexplorer:favorites', JSON.stringify(favoriteList));
   };
 
-  function addCart(value){
-
+  function handleSetCart(cartProduct){
+    if(cartProductsList.includes(cartProduct.id)) {
+      cartProductsList = (cartProductsList.filter(cartproductId => cartproductId !== id));
+    }else {
+      cartProductsList =([...cartProductsList, cartProduct]);       
+    };
+    addLocalStorageCart()
+    console.log('primeiro cartlist', cartProductsList);
+    console.log('cartproduct id',cartProduct.id);
   };
+
+  console.log('segundocart list' , cartProductsList);
+  
+  function addLocalStorageCart() {
+    localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartProductsList));
+  };
+    console.log(cartProductsList);
 
 
   return (
     <Container>
-      <Header onSetAddCart={addCart}/>
+      <Header />
       <div className='homeContent'>
         <div className='banner'>
           <img src={bannerImg} />
@@ -212,7 +222,7 @@ export function Home() {
               category={category} 
               products={products} 
               onSetFavorites={handleSetfavorites}   
-                       
+              onSetCart={handleSetCart}         
             />
           ))};
         </div>

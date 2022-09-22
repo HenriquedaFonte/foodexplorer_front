@@ -4,11 +4,11 @@ export function CartItem({ items }) {
   
   return (
     <Container>
-      <img src={items.img} />
+      <img src={items.product.avatar} />
       <div className="contentItem">
         <h3>
-          {items.qtd} x {items.name}
-          <span>{items.price}$</span>
+          {items.product.amount} x {items.product.name}
+          <span>{items.product.price}$</span>
         </h3>
         <button onClick={() => {}}>Delete</button>
       </div>

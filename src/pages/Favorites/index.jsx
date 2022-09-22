@@ -195,9 +195,6 @@ export function Favorites() {
     newData.push(newFavoriteList.find(obj => obj.id === favorite));
   }; 
 
-    // console.log('local storage', favoritesLocal);
-    console.log('new data',newData);
-    // console.log(newData[0].name);
   
   return (
     <Container>

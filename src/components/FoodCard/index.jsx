@@ -8,7 +8,7 @@ import { Button } from '../Button';
 import { useAuth } from '../../hooks/auth';
 
 
-export function FoodCard({ id, img: Img, name, description, price,  onSetFavorites }) {
+export function FoodCard({ id, img: Img, name, description, price,  onSetFavorites, onSetCart }) {
   const navigate = useNavigate();
   const [ isFavorite, setIsFavorite] = useState(false);
   const [ counter, setCounter] = useState(1);
@@ -18,6 +18,17 @@ export function FoodCard({ id, img: Img, name, description, price,  onSetFavorit
     setIsFavorite(!isFavorite);
     onSetFavorites(id);    
     // localStorage.setItem("@foodexplorer:favorites", JSON.stringify(id)); 
+  };
+
+  function handleSetCart(){
+    const cartProduct ={
+      id: id,
+      avatar: Img,
+      amount: counter,
+      name: name,
+      price: price
+    };
+    onSetCart(cartProduct);
   };
   
   function handleDeleteFavorites(id){    
@@ -56,7 +67,11 @@ export function FoodCard({ id, img: Img, name, description, price,  onSetFavorit
            <BiPlus size={25} color="white" />
           </button>
         </div>
-        <Button id="addFood" title="Add"/>
+        <Button 
+          id="addFood" 
+          title="Add"
+          onClick={handleSetCart}
+        />
       </div>
     </Container >
   );
