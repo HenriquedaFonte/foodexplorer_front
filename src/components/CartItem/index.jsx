@@ -1,6 +1,6 @@
 
 import { Container } from './styles';
-export function CartItem({ items }) {
+export function CartItem({ items, onRemoveProduct }) {
   
   return (
     <Container>
@@ -10,7 +10,7 @@ export function CartItem({ items }) {
           {items.product.amount} x {items.product.name}
           <span>{items.product.price}$</span>
         </h3>
-        <button onClick={() => {}}>Delete</button>
+        <button onClick={onRemoveProduct}>Delete</button>
       </div>
     </Container>
   );

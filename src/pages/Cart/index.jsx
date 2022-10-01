@@ -17,12 +17,19 @@ export function Cart() {
 
   const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
   if(cartProductsListLocal){
-    cartProductsListLocal.forEach(product => updateCartList(product));
+    cartProductsListLocal.forEach(product => cartProductsList.push({product}));
   };
 
-  function updateCartList(product) {
-    cartProductsList.push({product});
-  }; 
+  // function handleRemoveProduct({product}) {
+  //   console.log('cart delete', product);
+  //   console.log(cartProductsList);
+  //   if(cartProductsList.includes(product.id)) {
+  //     console.log('verdadeiro');
+  //     cartProductsList = (cartProductsList.filter(cartproductId => cartproductId !== product.id));
+  //     localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartProductsList));
+  //     console.log('cartProductsList',cartProductsList);
+  //   };
+  // };
 
 
   let valueTotal = 0;
@@ -30,10 +37,17 @@ export function Cart() {
     valueTotal = valueTotal + product.amount * product.price;
   };
 
+
+  let amount = 0;
+  for (let {product} of cartProductsList) {
+    amount = amount + product.amount;
+  };
+
+
   
   return (
     <Container>
-      <Header/>
+      <Header amount={amount}/>
       <div className='content'>
         <div className='command'>
           <h1>My Command</h1>
@@ -44,11 +58,11 @@ export function Cart() {
           >
             {cartProductsList &&
               cartProductsList.map((product, index) => (
-              <CartItem items={product} key={index}/>
+              <CartItem items={product} key={index} onRemoveProduct={() => {handleRemoveProduct(product)}}/>
             ))}
 
           </SimpleBar>
-          <h3>Total: {valueTotal}$ </h3>
+          <h3>Total: {valueTotal.toFixed(2)}$ </h3>
         </div>
         <div className='payment'>
           <h1>Payment</h1>
@@ -78,7 +92,7 @@ export function Cart() {
                 <Form>
                 <div className='inputLabelPosition'>
                     <label 
-                      htmlFor='cardNumber'                    
+                      htmlFor='cardNumber'         
                     >
                       Card Number:
                     </label>
@@ -91,7 +105,7 @@ export function Cart() {
                   <div className="cardData">
                     <div className='inputLabelPosition'>
                       <label 
-                        htmlFor='cardDate'                    
+                        htmlFor='cardDate'         
                       >
                         Valid Thru:
                       </label>
@@ -103,18 +117,21 @@ export function Cart() {
                     </div>
                     <div className='inputLabelPosition'>
                       <label 
-                        htmlFor='cardCvc'                    
+                        htmlFor='cardCvc'          
                       >
                         CVC:
                       </label>
                       <input 
                         type='text'
                         id='cardCvc'
-                        placeholder='04/25'
+                        placeholder='123'
                       />
                     </div>
                   </div>
-                  <Button title='Payment'/>
+                  <Button 
+                    title='Payment'
+                    // onClick={cleanCart}
+                  />
                 </Form>
               </div>
             )};

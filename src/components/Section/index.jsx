@@ -7,7 +7,7 @@ import { Navigation } from "swiper";
 
 import { FoodCard } from '../FoodCard'
 import { Container } from './styles'
-import { useState } from "react";
+
 
 export function Section({category, products, onSetFavorites, onSetCart}) {
 

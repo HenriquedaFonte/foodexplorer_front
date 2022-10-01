@@ -169,7 +169,8 @@ export function Home() {
   ];  
   
   let favoriteList = [];
-  let cartProductsList = [];
+  const [cartProductsList, setCartProductsList] = useState([]);
+  const [amount, setAmount] = useState(0);
 
   function handleSetfavorites(id) {
 
@@ -186,27 +187,26 @@ export function Home() {
   };
 
   function handleSetCart(cartProduct){
-    if(cartProductsList.includes(cartProduct.id)) {
-      cartProductsList = (cartProductsList.filter(cartproductId => cartproductId !== id));
-    }else {
-      cartProductsList =([...cartProductsList, cartProduct]);       
-    };
-    addLocalStorageCart()
-    console.log('primeiro cartlist', cartProductsList);
-    console.log('cartproduct id',cartProduct.id);
+    console.log('cart product', cartProduct);
+    setCartProductsList([...cartProductsList, cartProduct]);      
+    console.log('cart 1', cartProductsList);
+    setAmount(prevstate => prevstate + cartProduct.amount);   
   };
+  addLocalStorageCart() 
+  console.log('copy 2', cartProductsList);
 
-  console.log('segundocart list' , cartProductsList);
-  
+   
   function addLocalStorageCart() {
     localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartProductsList));
   };
-    console.log(cartProductsList);
 
+  const cartRecoverFromLocalStorage = [JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'))];
+
+  console.log('Cart Recover', cartRecoverFromLocalStorage);
 
   return (
     <Container>
-      <Header />
+      <Header amount={amount}/>
       <div className='homeContent'>
         <div className='banner'>
           <img src={bannerImg} />
@@ -222,7 +222,7 @@ export function Home() {
               category={category} 
               products={products} 
               onSetFavorites={handleSetfavorites}   
-              onSetCart={handleSetCart}         
+              onSetCart={handleSetCart}                      
             />
           ))};
         </div>

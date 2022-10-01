@@ -9,10 +9,13 @@ import { ButtonText } from '../ButtonText';
 import { Input } from '../Input';
 import { useAuth } from '../../hooks/auth';
 import Cart from '../../assets/cart.svg';
+import { useState } from 'react';
 
-export function Header() {
+export function Header(props) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
+
+  let amount = props.amount;
 
   return (
     <Container>
@@ -40,7 +43,7 @@ export function Header() {
           </button>
         </Link>
         <div className="cart" >
-          <label>0</label> 
+          <label>{amount}</label> 
           <img src={Cart} onClick={() => navigate('/Cart')}/>
         </div>
         <div className="logOut" onClick={signOut}>
@@ -48,5 +51,5 @@ export function Header() {
         </div>  
       </div>    
     </Container>
-  )
-}
+  );
+};

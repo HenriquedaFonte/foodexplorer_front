@@ -17,7 +17,6 @@ export function FoodCard({ id, img: Img, name, description, price,  onSetFavorit
   function handleFavorites(){        
     setIsFavorite(!isFavorite);
     onSetFavorites(id);    
-    // localStorage.setItem("@foodexplorer:favorites", JSON.stringify(id)); 
   };
 
   function handleSetCart(){

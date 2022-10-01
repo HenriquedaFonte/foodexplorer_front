@@ -17,7 +17,7 @@ import passionFruitDrink from '../../assets/drink1.png'
 import teDAutunno from '../../assets/drink2.png'
 import espresso from '../../assets/drink3.png'
 import pomoBourbon from '../../assets/drink4.png'
-import { useState, useStyles } from 'react'
+import { useState } from 'react'
 
 export function Favorites() {
   const newData = [];
@@ -198,7 +198,7 @@ export function Favorites() {
   
   return (
     <Container>
-      <Header />
+      <Header amount={amount}/>
       <div className="homeContent">
         <div className="banner">
           <img src={bannerImg} />
