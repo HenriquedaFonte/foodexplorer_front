@@ -1,45 +1,54 @@
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import { AiOutlineCreditCard, AiOutlineDollar } from 'react-icons/ai';
+import { api } from '../../services/api'
 
 import { Container, Form } from './styles';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { CartItem } from '../../components/CartItem';
 import qrCode from '../../assets/qrCode.svg'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../../components/Button';
 
 
 export function Cart() {
+  const [dishes, setDishes] = useState([]);
   const [isSelected, setIsSelected] = useState(true);
-  const cartProductsList = []
+  const [cartProductsList, setCardProductsList] = useState([]);
 
-  const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
-  if(cartProductsListLocal){
-    cartProductsListLocal.forEach(product => cartProductsList.push({product}));
-  };
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes`);
+      setDishes(response.data);
+    }
+     fetchDishes(); 
+  },[]);
 
-  // function handleRemoveProduct({product}) {
-  //   console.log('cart delete', product);
-  //   console.log(cartProductsList);
-  //   if(cartProductsList.includes(product.id)) {
-  //     console.log('verdadeiro');
-  //     cartProductsList = (cartProductsList.filter(cartproductId => cartproductId !== product.id));
-  //     localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartProductsList));
-  //     console.log('cartProductsList',cartProductsList);
-  //   };
-  // };
+  useEffect(() => {
+    const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
+    if(cartProductsListLocal){
+      setCardProductsList(cartProductsListLocal);
+    };
+  },[]);
 
+  function handleRemoveProduct(id) {
+    const cartListFiltered = cartProductsList.filter(cartProduct =>{ 
+
+      return cartProduct.id !== id       
+    })    
+      setCardProductsList(cartListFiltered);
+      localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartListFiltered));
+    };
 
   let valueTotal = 0;
-  for (let {product} of cartProductsList) {
+  for (let product of cartProductsList) {
     valueTotal = valueTotal + product.amount * product.price;
   };
 
 
   let amount = 0;
-  for (let {product} of cartProductsList) {
+  for (let product of cartProductsList) {
     amount = amount + product.amount;
   };
 
@@ -58,9 +67,8 @@ export function Cart() {
           >
             {cartProductsList &&
               cartProductsList.map((product, index) => (
-              <CartItem items={product} key={index} onRemoveProduct={() => {handleRemoveProduct(product)}}/>
+              <CartItem items={product} key={index} onRemoveProduct={handleRemoveProduct}/>
             ))}
-
           </SimpleBar>
           <h3>Total: {valueTotal.toFixed(2)}$ </h3>
         </div>

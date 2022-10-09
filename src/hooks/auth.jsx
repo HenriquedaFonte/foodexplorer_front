@@ -4,6 +4,7 @@ import { api } from '../services/api';
 
 export const AuthContext = createContext({});
 
+
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
 
@@ -28,6 +29,7 @@ function AuthProvider({ children }) {
   };
 
   function signOut() {
+  
   localStorage.removeItem('@foodexplorer:token');
   localStorage.removeItem('@foodexplorer:user');
 

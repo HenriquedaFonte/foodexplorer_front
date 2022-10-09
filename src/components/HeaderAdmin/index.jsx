@@ -6,6 +6,9 @@ import { Container } from './styles';
 import logoIcon from '../../assets/Polygon.png';
 import { ButtonText } from '../ButtonText';
 import { useAuth } from '../../hooks/auth';
+import { FiSearch } from 'react-icons/fi';
+
+import { Input } from '../Input';
 
 
 export function HeaderAdmin() {
@@ -22,13 +25,19 @@ export function HeaderAdmin() {
           </div>
         </Link>
        </div>
+        <Input
+          type="text"
+          placeholder="Search for plate options"
+          icon={FiSearch}
+          onChange={(e) => setSearch(e.target.value)}
+        />
        <div className="right">
         <Link to='/adddish' >
           <ButtonText 
             title='Admin'                   
           />
         </Link>
-        <Link to='/'>
+        <Link to='/handlecommands'>
           <button id='command'>
             <TbClipboardList size={18} />
             Commands

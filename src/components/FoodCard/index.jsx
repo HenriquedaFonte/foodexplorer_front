@@ -1,6 +1,7 @@
 import {  useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiPlus, BiMinus } from 'react-icons/bi';
+import { api } from '../../services/api'
 
 import { Container, Heart } from './styles';
 import { Button } from '../Button';

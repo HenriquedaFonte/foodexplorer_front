@@ -29,27 +29,8 @@ export function AddDish() {
     setIngredientsList(prevstate => prevstate.filter(ingredient => ingredient !== deleted));
   };
 
-  // const [newIngredientAvatar, setNewIngredientAvatar] = useState('');
-  // const [newIngredientAvatarFile, setNewIngredientAvatarFile] = useState(null);  
-
-  // function handleAddAvatar(event) {
-  //   const file = event.target.files[0];
-  //   setNewIngredientAvatarFile(file);
-
-  //   const avatarPreview = URL.createObjectURL(file);
-  //   setNewIngredientAvatar(avatarPreview);
-  // };
-
-
-  // if (ingredientsList.avatar) {
-  //   const fileUploadForm = new FormData();
-  //   fileUploadForm.append('avatar', ingredientsList.avatar);
-
-  //   const response = api.patch('/ingredients/avatar', fileUploadForm);
-  //   ingredientsList.avatar = response.data.avatar;
-  // };
-  
-  async function handleNewDish() {    
+ 
+  async function handleNewDish() {  
 
     await api.post('/dishes', {
       category, 
@@ -63,7 +44,7 @@ export function AddDish() {
     alert('New Dish created');
     setDishImg('');
     setDishName('');
-    setDishCategory('');
+    setDishCategory('Placeholder');
     setIngredientsList('');
     setDishPrice('');
     setDishDescription('');

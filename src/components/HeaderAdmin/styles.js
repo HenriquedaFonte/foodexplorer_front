@@ -23,7 +23,7 @@ export const Container = styled.div`
       align-items: center;
       gap: 1.1rem;
       flex-direction: row;
-      width: 72rem;
+      width: 22rem;
 
       >img {
         width: 2.9rem;
@@ -41,6 +41,7 @@ export const Container = styled.div`
     .right {
       display: flex;
       align-items: center;
+      margin-left: 1rem;
     }    
 
     button:nth-of-type(1) {

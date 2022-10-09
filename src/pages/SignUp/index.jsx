@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Form } from "./styles";
 
 import { api } from '../../services/api';
-
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
@@ -14,7 +13,6 @@ import  logoIcon  from '../../assets/Polygon.png';
 
 
 export function SignUp() {
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -41,8 +39,6 @@ export function SignUp() {
         alert('User registration error!');
       };
     });
-
-    console.log(name, email, password)
   };
 
   const [typeInput, setTypeInput] = useState("password");
@@ -70,14 +66,14 @@ export function SignUp() {
           type="text"
           placeholder="Your name"
           icon={FiUser}
-          onChange={event => setName(event.target.value)}
+          onChange={e => setName(e.target.value)}
         />
         <p>Email</p>
         <Input 
           type="text"
           placeholder="email@email.com"
           icon={FiAtSign}
-          onChange={event => setEmail(event.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
         <p>Password</p>
         <div className="inputPassword">
@@ -85,7 +81,7 @@ export function SignUp() {
             type={typeInput} 
             placeholder="Minimum 6 characters"
             icon={FiLock}
-            onChange={event => setPassword(event.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
           <button type="button" id="btnPassword" className={classButton} onClick={ToggleTypeInput}/>
         </div>
