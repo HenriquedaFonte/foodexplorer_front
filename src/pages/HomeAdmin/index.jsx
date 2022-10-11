@@ -7,8 +7,6 @@ import { api } from '../../services/api'
 import { useState, useEffect } from 'react'
 
 
-
-
 export function HomeAdmin() {
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState('');

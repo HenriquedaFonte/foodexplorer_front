@@ -13,17 +13,10 @@ import { Button } from '../../components/Button';
 
 
 export function Cart() {
-  const [dishes, setDishes] = useState([]);
+
   const [isSelected, setIsSelected] = useState(true);
   const [cartProductsList, setCardProductsList] = useState([]);
 
-  useEffect(() => {
-    async function fetchDishes() {
-      const response = await api.get(`/dishes`);
-      setDishes(response.data);
-    }
-     fetchDishes(); 
-  },[]);
 
   useEffect(() => {
     const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
@@ -34,29 +27,21 @@ export function Cart() {
 
   function handleRemoveProduct(id) {
     const cartListFiltered = cartProductsList.filter(cartProduct =>{ 
-
       return cartProduct.id !== id       
     })    
       setCardProductsList(cartListFiltered);
       localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartListFiltered));
-    };
+  };
 
   let valueTotal = 0;
   for (let product of cartProductsList) {
     valueTotal = valueTotal + product.amount * product.price;
   };
 
-
-  let amount = 0;
-  for (let product of cartProductsList) {
-    amount = amount + product.amount;
-  };
-
-
   
   return (
     <Container>
-      <Header amount={amount}/>
+      <Header amount={cartProductsList.length}/>
       <div className='content'>
         <div className='command'>
           <h1>My Command</h1>

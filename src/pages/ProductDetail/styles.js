@@ -36,13 +36,13 @@ export const Container = styled.div`
   .productDetailContainer {
     grid-area: content;
     display: grid;
-    grid-template-columns: 4fr 6fr;
+    grid-template-columns: 40% 60%;
     grid-template-areas: "img description";
     height: auto;
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 5.3rem;
-    gap: 4rem;
+    gap: 8rem;
     display: flex;
     align-items: center;
 
@@ -51,7 +51,8 @@ export const Container = styled.div`
       grid-area: img;   
 
       img {       
-        width: 38rem;
+        max-width: 35rem;
+        max-height: 35rem;
       };
     };
 
@@ -101,8 +102,8 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 4rem;
+            height: 4rem;
           }
 
         };
@@ -117,26 +118,36 @@ export const Container = styled.div`
       };
 
       .productDetailinfo {
+        width: 100%;
         display: flex;
         align-items: center;
         white-space: nowrap;      
 
-        .productDetailstepper {
-          margin-left: 6rem;
-          margin-right: 4ren;
-          display: flex;
-          align-items: center;
-          gap: 1.5rem;
-          
-          Strong {
-            color: white;
-            font-size: 2rem;
-          };
+      .productDetailstepper {
+        display: flex;
+        align-items: center;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        width: 10rem;
+        gap: 2rem;
+       
+
+        strong {
+          width: 5rem;
+          font-size: 2.4rem;
+          color: ${({ theme }) => theme.COLORS.WHITE_100};
         };
+      };  
+
+      .counterButton {
+        padding: 0.5rem;
+        background: transparent;
+        border: none; 
+      };
 
         button {
-          max-width: 9rem;
-          margin-left: 4rem;
+          max-width: 15rem;
+          margin-left: 0rem;
           margin-top: 0;
         };
       };

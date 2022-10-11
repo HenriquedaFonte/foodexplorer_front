@@ -8,9 +8,10 @@ import { Footer } from '../../components/Footer'
 
 
 export function Favorites() {
-  const newData = [];
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState('');
+  const RecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
+
 
   useEffect(() => {
     async function fetchDishes() {
@@ -21,22 +22,13 @@ export function Favorites() {
      fetchDishes(); 
   },[search]);
 
-  // const favoritesLocal = JSON.parse(localStorage.getItem('@foodexplorer:favorites'));
-  // let newFavoriteList = data.reduce((prev, next) => prev.concat(next.products), []);
+  const favoritesLocalId = JSON.parse(localStorage.getItem('@foodexplorer:favorites'));
+  const favoritedDishes = dishes.filter(dish => favoritesLocalId.includes(dish.id));
 
-  // if(favoritesLocal){
-  //   favoritesLocal.forEach(favorited => updateFavorites(favorited));
-  // };
-
-  // function updateFavorites(favorite) {
-  //   newData.push(newFavoriteList.find(obj => obj.id === favorite));
-  // }; 
- console.log('favorites dishes', dishes);
- const dishesFavorites = dishes.filter((dish => dish.favorite == 1))
   
   return (
     <Container>
-      <Header />
+      <Header amount={RecoverFromLocalStorage.length}/>
       <div className="homeContent">
         <div className="banner">
           <img src={bannerImg} />
@@ -47,9 +39,11 @@ export function Favorites() {
             <h1>Favorites</h1>
           </div>
         </div>
+        { dishes &&
         <div className="section">                      
-            <Section dish={dishesFavorites} />          
+            <Section dish={favoritedDishes} />          
         </div>
+        }
       </div>
       <Footer/>
     </Container>

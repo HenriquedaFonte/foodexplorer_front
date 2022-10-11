@@ -14,28 +14,23 @@ export function Home() {
   const cartRecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
   let favoriteList = [];
   const [dishes, setDishes] = useState([]);
-  const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
-
   const [search, setSearch] = useState('');
+  const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
 
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(`/dishes?title=${search}`);
       setDishes(response.data);
     }
-
      fetchDishes(); 
   },[search]);
 
-  console.log('dishes', dishes);
-
   async function handleSetfavorites(id) {
-
-    // if(favoriteList.includes(id)) {
-    //   favoriteList = (favoriteList.filter(favoriteId => favoriteId !== id));
-    // }else {
-    //   favoriteList =([...favoriteList, id]);       
-    // };
+    if(favoriteList.includes(id)) {
+      favoriteList = (favoriteList.filter(favoriteId => favoriteId !== id));
+    }else {
+      favoriteList =([...favoriteList, id]);       
+    };
     addLocalStorageFavorites()
   };
   
@@ -44,11 +39,17 @@ export function Home() {
   };
 
   function handleSetCart(cartProduct){
-    setCartProductsList([...cartProductsList, cartProduct]);  
-    setAmount(prevstate => prevstate + cartProduct.amount);   
+    const copyCartProductList = [...cartProductsList]
+    const cartItem = copyCartProductList.find((item) => item.id === cartProduct.id); 
+
+    if (!cartItem){
+      copyCartProductList.push(cartProduct)
+    } else {
+      cartItem.amount = cartItem.amount + cartProduct.amount
+    };
+    setCartProductsList(copyCartProductList);
   };
   addLocalStorageCart() 
-  console.log('copy 2', cartProductsList);
 
    
   function addLocalStorageCart() {
@@ -58,7 +59,7 @@ export function Home() {
 
   return (
     <Container>
-      <Header amount={cartProductsList.length} onChange={e => setSearch(e.target.value)}/>
+      <Header amount={cartProductsList.length} onChange={setSearch}/>
       <div className='homeContent'>
         <div className='banner'>
           <img src={bannerImg} />
