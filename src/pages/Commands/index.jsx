@@ -15,25 +15,25 @@ const commands = [
   {
     fill:"#ebfb0a",
     situation: "Preparing",
-    code: "000001",
+    code: "000002",
     details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
     madeOn: "05/20 at 18h00"
   },
   {
     fill:"#fb0a0a",
     situation: "Pending",
-    code: "000001",
+    code: "000003",
     details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
     madeOn: "05/20 at 18h00"
   },
   {
     fill:"#fb0a0a",
     situation: "Pending",
-    code: "000001",
+    code: "000004",
     details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
     madeOn: "05/20 at 18h00"
   }
-]
+];
 
   return (
     <Container>

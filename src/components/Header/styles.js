@@ -69,7 +69,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      color: ${({ theme }) => theme.COLORS.WHITE};
+      color: ${({ theme }) => theme.COLORS.RED};
       width: 3rem;
       height: 3.5rem;
       cursor: pointer;

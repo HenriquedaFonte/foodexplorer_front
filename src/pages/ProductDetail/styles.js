@@ -150,6 +150,10 @@ export const Container = styled.div`
           margin-left: 0rem;
           margin-top: 0;
         };
+        button:active{
+          box-shadow: 0 0 0 0, inset 2px 2px 2px;
+          transform: translate(3px, 3px);
+        };
       };
     };
   };

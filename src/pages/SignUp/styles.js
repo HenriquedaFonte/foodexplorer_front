@@ -72,7 +72,7 @@ export const Form = styled.form`
   border-radius: 16px;
   text-align: center;
 
-  >h1 {
+  h1 {
     
     font-family: ${({ theme }) => theme.FONTS.POPPINS};
     color: ${({ theme }) => theme.COLORS.WHITE};
@@ -80,7 +80,7 @@ export const Form = styled.form`
     font-weight: 500;
   };
 
-  >p {
+  p {
     align-self: flex-start;
     margin-top: 3.2rem;
     font-family: ${({ theme }) => theme.FONTS.ROBOTO};
@@ -116,6 +116,11 @@ export const Form = styled.form`
       height: 24px;      
     };
  };
+
+ #signUp:active{
+    box-shadow: 0 0 0 0, inset 1px 1px 1px;
+    transform: translate(2px, 2px);
+  };
 
   .showPassword {
     background: url(${closeEye}) no-repeat center center;

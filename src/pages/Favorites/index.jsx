@@ -8,9 +8,11 @@ import { Footer } from '../../components/Footer'
 
 
 export function Favorites() {
+  const cartRecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState('');
-  const RecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
+  const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
+
 
 
   useEffect(() => {
@@ -25,10 +27,28 @@ export function Favorites() {
   const favoritesLocalId = JSON.parse(localStorage.getItem('@foodexplorer:favorites'));
   const favoritedDishes = dishes.filter(dish => favoritesLocalId.includes(dish.id));
 
+  function handleSetCart(cartProduct){
+    const copyCartProductList = [...cartProductsList]
+    const cartItem = copyCartProductList.find((item) => item.id === cartProduct.id); 
+
+    if (!cartItem){
+      copyCartProductList.push(cartProduct)
+    } else {
+      cartItem.amount = cartItem.amount + cartProduct.amount
+    };
+    setCartProductsList(copyCartProductList);
+  };
+  addLocalStorageCart() 
+
+   
+  function addLocalStorageCart() {
+    localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartProductsList));
+  };
+
   
   return (
     <Container>
-      <Header amount={RecoverFromLocalStorage.length}/>
+      <Header amount={cartProductsList.length}/>
       <div className="homeContent">
         <div className="banner">
           <img src={bannerImg} />
@@ -41,7 +61,10 @@ export function Favorites() {
         </div>
         { dishes &&
         <div className="section">                      
-            <Section dish={favoritedDishes} />          
+            <Section 
+              dish={favoritedDishes} 
+              onSetCart={handleSetCart}
+            />          
         </div>
         }
       </div>

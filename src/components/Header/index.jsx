@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { FiSearch } from 'react-icons/fi';
-import { TbClipboardList } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
 import { Container } from './styles';
 import logoIcon from '../../assets/Polygon.png';
@@ -47,12 +46,6 @@ export function Header(props) {
           placeholder="Search for plate options"
           icon={FiSearch}
         />
-        <Link to="/Commands">
-          <button id="command">
-            <TbClipboardList size={18} />
-            Commands
-          </button>
-        </Link>
         <div className="cart" >
           <label>{amount}</label> 
           <img src={Cart} onClick={() => navigate('/Cart')}/>

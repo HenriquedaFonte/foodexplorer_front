@@ -17,22 +17,19 @@ export const Container = styled.div`
     gap: 2.2rem;
     margin-bottom: 6rem;
 
-    >img {
+    img {
       width: 4.2rem;
       height: 4.7rem;
     };
 
-    >h1 {
+    h1 {
       color: ${({ theme }) => theme.COLORS.WHITE};
       font-size: 4.2rem;
       font-weight: 700;
     };
 
-    >button:nth-child(1) {
-      height: 4,8rem;
-    }
   };
-
+  
 
   @media (min-width: 800px) {
   margin-top: 0;
@@ -50,12 +47,12 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
 
-    >img {
+    img {
       width: 4.2rem;
       height: 4.7rem;
     };
 
-    >h1 {
+    h1 {
       color: ${({ theme }) => theme.COLORS.WHITE};
       font-size: 4.2rem;
       font-weight: 700;
@@ -77,14 +74,14 @@ export const Form = styled.form`
   border-radius: 16px;
   text-align: center;
 
-  >h1 {
+  h1 {
     font-family: ${({ theme }) => theme.FONTS.POPPINS};
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-size: 3.2rem;
     font-weight: 500;
   };
 
-  >p {
+  p {
     align-self: flex-start;
     margin-top: 3.2rem;
     font-family: ${({ theme }) => theme.FONTS.ROBOTO};
@@ -120,7 +117,14 @@ export const Form = styled.form`
       height: 24px;
       
     };
- };
+
+  };
+
+  #login:active{
+    box-shadow: 0 0 0 0, inset 1px 1px 1px;
+    transform: translate(2px, 2px);
+  };
+ 
 
   .showPassword {
     background: url(${closeEye}) no-repeat center center;

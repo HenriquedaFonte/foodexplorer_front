@@ -60,6 +60,7 @@ export function SignIn() {
           <button type="button" id="btnPassword" className={classButton} onClick={ToggleTypeInput}/>
         </div>
         <Button 
+          id='login'
           title="Login"
           onClick={handleSignIn} 
         />

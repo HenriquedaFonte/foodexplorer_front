@@ -25,7 +25,7 @@ export function Home() {
      fetchDishes(); 
   },[search]);
 
-  async function handleSetfavorites(id) {
+  function handleSetfavorites(id) {
     if(favoriteList.includes(id)) {
       favoriteList = (favoriteList.filter(favoriteId => favoriteId !== id));
     }else {

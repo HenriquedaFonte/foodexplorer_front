@@ -67,6 +67,10 @@ export const Container = styled.div`
     #addFood {
       margin-top: 0;
     };
+    #addFood:active{
+      box-shadow: 0 0 0 0, inset 2px 2px 2px;
+      transform: translate(3px, 3px);
+    };
   };
 
   .counterButton {

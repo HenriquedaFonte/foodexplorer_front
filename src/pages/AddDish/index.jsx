@@ -68,7 +68,7 @@ export function AddDish() {
           <section>
             <div className='inputLabelPosition'>
             <UploadImg>
-              <h3>Ingredient IMG</h3>
+              <h3>Dish IMG</h3>
               <label htmlFor='ingredientImg' id='ingredientImg' placeholder='Chosen Image'> 
                 <input 
                   type='file' 

@@ -86,6 +86,7 @@ export function SignUp() {
           <button type="button" id="btnPassword" className={classButton} onClick={ToggleTypeInput}/>
         </div>
         <Button 
+          id='signUp'
           title="SingUp" 
           onClick={HandleSignUp}
         />
