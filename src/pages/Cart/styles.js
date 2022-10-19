@@ -86,6 +86,7 @@ export const Container = styled.div`
       .paymentTransfer {
         height: 34.5rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         border: 1px solid ${({ theme }) => theme.COLORS.GRAY_300};
@@ -96,6 +97,14 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.GRAY_300};
           };
         };
+        button {
+          margin-top: 2rem;
+          width: 25rem;
+        };
+        button:active{
+          box-shadow: 0 0 0 0, inset 2px 2px 2px;
+          transform: translate(3px, 3px);
+        };
       };  
       .paymentCart {
           height: 34.5rem;
@@ -103,6 +112,11 @@ export const Container = styled.div`
           align-items: center;
           justify-content: center;
           border: 1px solid ${({ theme }) => theme.COLORS.GRAY_300};
+          
+            button:active{
+              box-shadow: 0 0 0 0, inset 2px 2px 2px;
+              transform: translate(3px, 3px);
+            };
       };    
     };
   };

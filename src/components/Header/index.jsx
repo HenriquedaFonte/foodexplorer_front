@@ -50,6 +50,11 @@ export function Header(props) {
           <label>{amount}</label> 
           <img src={Cart} onClick={() => navigate('/Cart')}/>
         </div>
+        <Link to='/commands'>
+          <button id='command'>
+            Command
+          </button>
+        </Link>
         <div className="logOut" onClick={signOut}>
           <MdLogout size={30} fill="white"/>
         </div>  

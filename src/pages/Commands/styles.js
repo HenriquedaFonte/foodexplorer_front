@@ -57,7 +57,7 @@ export const Container = styled.div`
 
       thead {
         font-family: ${({ theme }) => theme.FONTS.ROBOTO};
-        font-size: 1.4rem;
+        font-size: 2.1rem;
         color: ${({ theme }) => theme.COLORS.WHITE_100};
         height: 6.4rem;
 
@@ -83,6 +83,7 @@ export const Container = styled.div`
         height: 5.4rem;
         padding: 2.4rem;
         font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+        font-size: 1.8rem;
         color: ${({ theme }) => theme.COLORS.GRAY_100};
         border: 2px solid ${({ theme }) => theme.COLORS.TABLE_BORDER};
 

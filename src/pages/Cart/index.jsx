@@ -33,6 +33,12 @@ export function Cart() {
       localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartListFiltered));
   };
 
+  function setCleanCart () {
+    localStorage.setItem('@foodexplorer:cartProductsListBeforeClean', JSON.stringify(cartProductsList));
+    setCardProductsList([]);
+    localStorage.removeItem('@foodexplorer:cartProductsList');
+  };
+
   let valueTotal = 0;
   for (let product of cartProductsList) {
     valueTotal = valueTotal + product.amount * product.price;
@@ -79,6 +85,10 @@ export function Cart() {
             {isSelected ? (
               <div className='paymentTransfer'>
                 <img src={qrCode} alt='QR Code' />
+                <Button 
+                    title='Payment'
+                    onClick={setCleanCart}
+                />
               </div>
             ) : (
               <div className='paymentCart'>
@@ -123,7 +133,7 @@ export function Cart() {
                   </div>
                   <Button 
                     title='Payment'
-                    // onClick={cleanCart}
+                    onClick={setCleanCart}
                   />
                 </Form>
               </div>

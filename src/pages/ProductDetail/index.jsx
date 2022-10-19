@@ -25,8 +25,8 @@ export function ProductDetail() {
       setDish(response.data);
     }
     fetchDish();
-  }, [])
-  console.log(dish);
+  }, []);
+
   
  
   return (
@@ -51,9 +51,9 @@ export function ProductDetail() {
           <p>{dish.description}</p>
           <div className="productDetailIngredients">
             {dish.ingredients.map((ingredient, index) => (
-              <div className="igredients">
+              <div className="igredients" key={index}>
                 <div className="image">
-                  <img src={`${api.defaults.baseURL}/files/${ingredient.avatar}`} key={index}/>
+                  <img src={`${api.defaults.baseURL}/files/${ingredient.avatar}`} />
                 </div>
                 <p>{ingredient.name}</p>
               </div>
