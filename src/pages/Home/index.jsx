@@ -25,6 +25,14 @@ export function Home() {
      fetchDishes(); 
   },[search]);
 
+  // useEffect(() => {
+  //   async function fetchIngredients() {
+  //     const response = await api.get(`/dishes?ingredients=${search}`);
+  //     setDishes(response.data);
+  //   }
+  //    fetchIngredients(); 
+  // },[search]);
+
   function handleSetfavorites(id) {
     if(favoriteList.includes(id)) {
       favoriteList = (favoriteList.filter(favoriteId => favoriteId !== id));
@@ -59,7 +67,7 @@ export function Home() {
 
   return (
     <Container>
-      <Header amount={cartProductsList.length} onChange={setSearch}/>
+      <Header amount={cartProductsList.length} onchange={(value) => setSearch(value)}/>
       <div className='homeContent'>
         <div className='banner'>
           <img src={bannerImg} />

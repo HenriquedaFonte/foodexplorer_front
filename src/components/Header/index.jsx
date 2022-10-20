@@ -8,24 +8,13 @@ import { ButtonText } from '../ButtonText';
 import { Input } from '../Input';
 import { useAuth } from '../../hooks/auth';
 import Cart from '../../assets/cart.svg';
-import { useState, useEffect } from 'react';
-import { api } from '../../services/api'
 
-export function Header(props) {
+export function Header({onchange, ...props} ) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
-  const [search, setSearch] = useState('');
-  const [dishes, setDishes] = useState([]); 
 
   let amount = props.amount;
 
-  useEffect(()=>{
-    async function fetchDishes(){
-      const response = await api.get(`/dishes?title=${search}`);
-      setDishes(response.data);
-    }
-    fetchDishes();
-  }, [search]);
 
   return (
     <Container>
@@ -45,6 +34,7 @@ export function Header(props) {
           type="text"
           placeholder="Search for plate options"
           icon={FiSearch}
+          onchange={(value)=> onchange(value)}
         />
         <div className="cart" >
           <label>{amount}</label> 

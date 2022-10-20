@@ -1,6 +1,5 @@
 import { Container } from './styles';
-
-import { FaCircle } from "react-icons/fa";
+import { useState, useEffect } from 'react'
 
 import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { Footer } from '../../components/Footer';
@@ -47,6 +46,17 @@ const status = [
   }
 ]
 
+const [cartProductsList, setCardProductsList] = useState([]);
+
+console.log(cartProductsList);
+useEffect(() => {
+  const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsListBeforeClean'));
+  if(cartProductsListLocal){
+    setCardProductsList(cartProductsListLocal);
+  };
+},[]);
+
+
   return (
     <Container>
       <HeaderAdmin />
@@ -62,7 +72,7 @@ const status = [
             </tr>
           </thead>
           <tbody>                     
-          {commands.map((data, index) => (
+          {cartProductsList.map((data, index) => (
             <tr key={index}>
               <td>
                 <select>
@@ -73,9 +83,9 @@ const status = [
                   ))}
                 </select>
               </td>
-              <td>{data.code}</td>
-              <td>{data.details}</td>
-              <td>{data.madeOn}</td>
+              <td>{index}</td>
+              <td>{data.amount} x {data.name}</td>
+              <td>05/20 at 18h00</td>
             </tr>
           ))} 
           </tbody>

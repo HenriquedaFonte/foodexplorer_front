@@ -73,7 +73,6 @@ export function AddDish() {
                 <input 
                   type='file' 
                   name='ingredientImg'
-                  value={avatar}
                   onChange={e => setDishImg(e.target.value)}
                 />
               </label>

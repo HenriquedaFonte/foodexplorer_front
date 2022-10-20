@@ -48,6 +48,7 @@ export function Section({dish, onSetFavorites, onSetCart}) {
                 name={dish.title}
                 description={dish.description}
                 price={dish.price}
+                ingredients={dish.ingredients}
                 onSetFavorites={handleSetfavorites}
                 onSetCart={handleSetCart}
               />

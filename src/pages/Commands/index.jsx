@@ -6,36 +6,6 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 
 export function Commands() {
-const commands = [
-  {
-    fill:"#12fb0a",
-    situation: "Delivered",
-    code: "000001",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  },
-  {
-    fill:"#ebfb0a",
-    situation: "Preparing",
-    code: "000002",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  },
-  {
-    fill:"#fb0a0a",
-    situation: "Pending",
-    code: "000003",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  },
-  {
-    fill:"#fb0a0a",
-    situation: "Pending",
-    code: "000004",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  }
-];
 
 const [cartProductsList, setCardProductsList] = useState([]);
 

@@ -16,13 +16,12 @@ export function HomeAdmin() {
       const response = await api.get(`/dishes?title=${search}`);
       setDishes(response.data);
     }
-
      fetchDishes(); 
   },[search]);
 
   return (
     <Container>
-      <HeaderAdmin onChange={e => setSearch(e.target.value)}/>
+      <HeaderAdmin onchange={(value) => setSearch(value)}/>
       <div className='homeContent'>
         <div className='banner'>
           <img src={bannerImg} />
