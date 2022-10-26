@@ -9,16 +9,8 @@ import { useState } from 'react';
 export function DataIngredients({onClose, onSetIngredients, children}) {
 
   const [newIngredientName, setNewIngredientName] = useState('');
-  const [newIngredientAvatar, setNewIngredientAvatar] = useState('');
-  // const [newIngredientAvatarFile, setNewIngredientAvatarFile] = useState(null);
-  
+  const [newIngredientAvatar, setNewIngredientAvatar] = useState(null);
 
-  // function handleAddAvatar(event) {
-  //   const file = event.target.files[0];
-  //   setNewIngredientAvatarFile(file);
-  //   const avatarPreview = URL.createObjectURL(file);
-  //   setNewIngredientAvatar(avatarPreview);
-  // };
 
   function handleAddIngredient() {
 
@@ -26,7 +18,7 @@ export function DataIngredients({onClose, onSetIngredients, children}) {
       name: newIngredientName,
       avatar: newIngredientAvatar  
     };
-  
+
     onSetIngredients(newIngredient);
     setNewIngredientAvatar('');
     setNewIngredientName('');
@@ -51,10 +43,10 @@ export function DataIngredients({onClose, onSetIngredients, children}) {
               <h3>Ingredient IMG</h3>
               <label htmlFor='ingredientImg' id='ingredientImg' placeholder='Chosen Image'> 
                 <input 
-                  type='file' 
+                  type='file'
+                  multiple 
                   name='ingredientImg'
-                  value={newIngredientAvatar}
-                  onChange={e => setNewIngredientAvatar(e.target.value)}
+                  onChange={(e) => setNewIngredientAvatar(e.target.value)}
                 />
               </label>
             </UploadImg>

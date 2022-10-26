@@ -25,13 +25,7 @@ export function Home() {
      fetchDishes(); 
   },[search]);
 
-  // useEffect(() => {
-  //   async function fetchIngredients() {
-  //     const response = await api.get(`/dishes?ingredients=${search}`);
-  //     setDishes(response.data);
-  //   }
-  //    fetchIngredients(); 
-  // },[search]);
+
 
   function handleSetfavorites(id) {
     if(favoriteList.includes(id)) {

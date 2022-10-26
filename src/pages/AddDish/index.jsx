@@ -9,12 +9,14 @@ import { Ingredients } from '../../components/Ingredients';
 import { DataIngredients } from '../../components/DataIngredients';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 
 export function AddDish() {
   const navigate = useNavigate(); 
+  const {user} = useAuth();
   const [isPopupVisible, setIsPopupVisible] = useState(false); 
-  const [avatar, setDishImg] = useState('');
+  const [avatar, setAvatar] = useState(null);
   const [title, setDishName] = useState('');
   const [category, setDishCategory] = useState('');
   const [price, setDishPrice] = useState('');
@@ -31,23 +33,39 @@ export function AddDish() {
 
  
   async function handleNewDish() {  
+    console.log(avatar);
+    const formData = new FormData();
+    formData.append('category', category);
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('avatar', avatar);
+    formData.append('user_id', user.id);
+ 
 
-    await api.post('/dishes', {
-      category, 
-      title,
-      description, 
-      price, 
-      avatar,
-      ingredients: ingredientsList
-    });
+    ingredientsList.map(ingredient => (
+      formData.append("ingredients", JSON.stringify(ingredient))
+      
+    ));
 
+    await api.post('/dishes', formData);
     alert('New Dish created');
-    setDishImg('');
-    setDishName('');
-    setDishCategory('Placeholder');
-    setIngredientsList('');
-    setDishPrice('');
-    setDishDescription('');
+    navigate(-1);
+   
+    // await api.post('/dishes', {ingredients: ingredientsList})
+    
+    // await api.post('/dishes', {
+    //   category, 
+    //   title,
+    //   description, 
+    //   price, 
+    //   avatar,
+    //   user_id: user.id,
+    //   ingredients: ingredientsList
+    // });
+
+    // alert('New Dish created');
+    // navigate(-1);
   };
 
   return (
@@ -61,7 +79,7 @@ export function AddDish() {
           onClick={() => navigate('/')}
         />
       </div>
-      <Form>
+      <Form encType='multipart/form-data'>
       {isPopupVisible ? <DataIngredients onSetIngredients={handleSetIngredients} onClose={() => {setIsPopupVisible(false)}}/> : null}
         <div className='container'>
           <h1>Add Dish</h1>
@@ -69,11 +87,12 @@ export function AddDish() {
             <div className='inputLabelPosition'>
             <UploadImg>
               <h3>Dish IMG</h3>
-              <label htmlFor='ingredientImg' id='ingredientImg' placeholder='Chosen Image'> 
+              <label htmlFor='dishImg' id='dishImg' placeholder='Chosen Image'> 
                 <input 
                   type='file' 
-                  name='ingredientImg'
-                  onChange={e => setDishImg(e.target.value)}
+                  multiple
+                  name='dishImg'
+                  onChange={(e) => setAvatar(e.target.files[0])}
                 />
               </label>
             </UploadImg>
@@ -94,7 +113,7 @@ export function AddDish() {
               onChange={e => setDishCategory(e.target.value)}
             >
               <option value='Placeholder'>Choose dish category</option>
-              <option value='Main dish'>Main dish</option>
+              <option value='Main Dish'>Main Dish</option>
               <option value='Dessert'>Dessert</option>
               <option value='Drink'>Drink</option>
             </select>
