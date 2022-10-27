@@ -11,7 +11,7 @@ import { FiSearch } from 'react-icons/fi';
 import { Input } from '../Input';
 
 
-export function HeaderAdmin() {
+export function HeaderAdmin({onchange, ...props}) {
   const { signOut } = useAuth();
   return (
     <Container>
@@ -28,7 +28,7 @@ export function HeaderAdmin() {
           type="text"
           placeholder="Search for plate options"
           icon={FiSearch}
-          onChange={(e) => setSearch(e.target.value)}
+          onchange={(value)=> onchange(value)}
         />
        <div className="right">
         <Link to='/adddish' >

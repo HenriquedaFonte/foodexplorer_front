@@ -15,6 +15,7 @@ export const Container = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_CARD};
 
+
   img {
     width: 17.6rem;
   };

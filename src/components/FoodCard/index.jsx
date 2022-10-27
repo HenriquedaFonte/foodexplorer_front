@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BiPlus, BiMinus } from 'react-icons/bi'
+import { FaTrashAlt} from 'react-icons/fa'
 
 import { Container, Heart } from './styles'
 import { Button } from '../Button'
+
+import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api'
+
+
 
 export function FoodCard({
   id,
@@ -14,6 +20,7 @@ export function FoodCard({
   onSetFavorites,
   onSetCart
 }){ 
+  const {user} = useAuth();
   const navigate = useNavigate()
   const [isFavorite, setIsFavorite] = useState(false)
   const [counter, setCounter] = useState(1)
@@ -38,20 +45,37 @@ export function FoodCard({
     setIsFavorite(!isFavorite)
     onSetFavorites(id)
   };
+  async function handleRemoveDish() {
+    const confirm = window.confirm(`Do you really want to remove ${name}?`);
+    
+    if (confirm) {
+      await api.delete(`/dishes/${id}`);
+      location.reload();
+    };
+  };
 
   return (
     <Container>
-      <Heart
-        isFavorite={isFavorite}
-        onClick={
-          !isFavorite
-            ? () => handleFavorites(id)
-            : () => handleDeleteFavorites(id)
-        }
-      ></Heart>
-      <a onClick={() => navigate(`/ProductDetail/${id}`)}>
+      { user.email === 'admin@email.com' ? 
+        <><button
+          onClick={handleRemoveDish}
+        >
+          <FaTrashAlt size={18} />
+        </button>
         <img src={Img} />
-      </a>
+        </>
+      :              
+        <><Heart
+          isFavorite={isFavorite}
+          onClick={!isFavorite
+            ? () => handleFavorites(id)
+            : () => handleDeleteFavorites(id)}
+        >
+        </Heart>
+        <a onClick={() => navigate(`/ProductDetail/${id}`)}>
+          <img src={Img} />
+        </a></>
+      } 
       <h1>{name}</h1>
       <p>{description}</p>
       <h2>{price + '$'}</h2>

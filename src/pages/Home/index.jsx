@@ -26,7 +26,6 @@ export function Home() {
   },[search]);
 
 
-
   function handleSetfavorites(id) {
     if(favoriteList.includes(id)) {
       favoriteList = (favoriteList.filter(favoriteId => favoriteId !== id));

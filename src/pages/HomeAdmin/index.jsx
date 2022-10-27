@@ -18,7 +18,7 @@ export function HomeAdmin() {
     }
      fetchDishes(); 
   },[search]);
-  console.log(dishes);
+
   return (
     <Container>
       <HeaderAdmin onchange={(value) => setSearch(value)}/>
