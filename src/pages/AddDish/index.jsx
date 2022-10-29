@@ -79,7 +79,7 @@ export function AddDish() {
           onClick={() => navigate('/')}
         />
       </div>
-      <Form encType='multipart/form-data'>
+      <Form >
       {isPopupVisible ? <DataIngredients onSetIngredients={handleSetIngredients} onClose={() => {setIsPopupVisible(false)}}/> : null}
         <div className='container'>
           <h1>Add Dish</h1>

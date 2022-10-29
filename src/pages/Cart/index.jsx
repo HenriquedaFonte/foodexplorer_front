@@ -15,28 +15,30 @@ import { Button } from '../../components/Button';
 export function Cart() {
 
   const [isSelected, setIsSelected] = useState(true);
-  const [cartProductsList, setCardProductsList] = useState([]);
+  const [cartProductsList, setCartProductsList] = useState([]);
 
 
   useEffect(() => {
     const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
     if(cartProductsListLocal){
-      setCardProductsList(cartProductsListLocal);
+      setCartProductsList(cartProductsListLocal);
     };
   },[]);
+  console.log(cartProductsList);
 
   function handleRemoveProduct(id) {
     const cartListFiltered = cartProductsList.filter(cartProduct =>{ 
       return cartProduct.id !== id       
     })    
-      setCardProductsList(cartListFiltered);
+      setCartProductsList(cartListFiltered);
       localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartListFiltered));
   };
 
   function setCleanCart () {
     localStorage.setItem('@foodexplorer:cartProductsListBeforeClean', JSON.stringify(cartProductsList));
-    setCardProductsList([]);
+    setCartProductsList([]);
     localStorage.removeItem('@foodexplorer:cartProductsList');
+    location.reload();
   };
 
   let valueTotal = 0;

@@ -17,7 +17,10 @@ export function ProductDetail() {
   const [counter, setCounter] = useState(1)
   const navigate = useNavigate();
   const params = useParams();
-  const RecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
+  const cartRecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
+  const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
+
+
   
   useEffect(() => {
     async function fetchDish() {
@@ -26,12 +29,41 @@ export function ProductDetail() {
     }
     fetchDish();
   }, []);
+  
+  function handleSetCart(){
+    const dishName = dish.title;
+    const dishAvatar = `${api.defaults.baseURL}/files/${dish.avatar}`;
+    const dishPrice = dish.price;
+    const dishId = dish.id;
+    console.log(dish);
+    const copyCartProductList = [...cartProductsList]
+    const cartItem = copyCartProductList.find((item) => item.id === dish.id);
+      if (!cartItem){
+        copyCartProductList.push({
+          id: dishId,
+          name: dishName,
+          avatar: dishAvatar,
+          price: dishPrice,
+          amount: counter
+        })
+      } else {
+        cartItem.amount = cartItem.amount + dish.amount
+      };
+      setCartProductsList(copyCartProductList);
+    };
+    addLocalStorageCart() 
+
+
+   
+  function addLocalStorageCart() {
+    localStorage.setItem('@foodexplorer:cartProductsList', JSON.stringify(cartProductsList));
+  };
 
   
  
   return (
     <Container>
-      <Header amount={RecoverFromLocalStorage.length}/>
+      <Header amount={cartProductsList.length}/>
       <div className="buttonBack">
         <ButtonText
           title="Back"
@@ -76,7 +108,7 @@ export function ProductDetail() {
               <BiPlus size={25} color="white" />
               </button>
             </div>
-            <Button id="addFood" title="Add"  />
+            <Button id="addFood" title="Add" onClick={handleSetCart}/>
           </div>
         </div>
       </div>

@@ -15,6 +15,11 @@ export const Container = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_CARD};
 
+  #trashIcon {
+    align-self: flex-end;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 
   img {
     width: 17.6rem;

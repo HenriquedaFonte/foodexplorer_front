@@ -45,6 +45,7 @@ export function FoodCard({
     setIsFavorite(!isFavorite)
     onSetFavorites(id)
   };
+
   async function handleRemoveDish() {
     const confirm = window.confirm(`Do you really want to remove ${name}?`);
     
@@ -58,6 +59,7 @@ export function FoodCard({
     <Container>
       { user.email === 'admin@email.com' ? 
         <><button
+          id='trashIcon'
           onClick={handleRemoveDish}
         >
           <FaTrashAlt size={18} />
@@ -79,6 +81,8 @@ export function FoodCard({
       <h1>{name}</h1>
       <p>{description}</p>
       <h2>{price + '$'}</h2>
+      { user.email === 'admin@email.com' ? ''      
+      :       
       <div className="footerCard">
         <div className="stepper">
           <button
@@ -97,6 +101,7 @@ export function FoodCard({
         </div>
         <Button id="addFood" title="Add" onClick={handleSetCart} />
       </div>
+      }
     </Container>
   )
 }
