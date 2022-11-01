@@ -19,7 +19,7 @@ export const Container = styled.div`
     align-self: flex-end;
     margin-top: 3rem;
     margin-bottom: 3rem;
-  }
+  };
 
   img {
     width: 17.6rem;
@@ -95,5 +95,4 @@ export const Heart = styled.button`
   width: 28px;
   height: 28px;
   background: ${({isFavorite}) => isFavorite ? `url(${heartFill}) no-repeat center center` : `url(${heart}) no-repeat center center`};
-
 `;

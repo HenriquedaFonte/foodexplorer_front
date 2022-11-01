@@ -55,6 +55,7 @@ export function FoodCard({
     };
   };
 
+
   return (
     <Container>
       { user.email === 'admin@email.com' ? 
@@ -64,7 +65,9 @@ export function FoodCard({
         >
           <FaTrashAlt size={18} />
         </button>
-        <img src={Img} />
+        <a onClick={() => navigate(`/EditDish/${id}`)}>
+          <img src={Img} />
+        </a>
         </>
       :              
         <><Heart
