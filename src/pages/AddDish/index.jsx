@@ -33,7 +33,6 @@ export function AddDish() {
 
  
   async function handleNewDish() {  
-    console.log(avatar);
     const formData = new FormData();
     formData.append('category', category);
     formData.append('title', title);

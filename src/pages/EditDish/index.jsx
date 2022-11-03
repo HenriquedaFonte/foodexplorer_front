@@ -17,33 +17,25 @@ export function EditDish() {
   const navigate = useNavigate(); 
   const {user} = useAuth();
   const [isPopupVisible, setIsPopupVisible] = useState(false); 
-  const [dish, setDish] = useState('');
+  // const [dish, setDish] = useState('');
   const [avatar, setAvatar] = useState(null);
-  const [title, setDishName] = useState('');
+  const [title, setDishTitle] = useState('');
   const [category, setDishCategory] = useState('');
+  const [ingredientsList, setIngredientsList] = useState([]); 
   const [price, setDishPrice] = useState('');
   const [description, setDishDescription] = useState('');
-  const [ingredientsList, setIngredientsList] = useState([]); 
 
-  useEffect(() => {
-    async function fetchDish() {
-      const response = await api.get(`/dishes/${params.id}`)
-      setDish(response.data);
-    }
-    fetchDish();
-  }, []);
-
+  
   function handleSetIngredients(ingredients) {
     setIngredientsList(prevstate => [...prevstate, ingredients]);
   };
-
+  
   function handleRemoveIngredient(deleted) {
     setIngredientsList(prevstate => prevstate.filter(ingredient => ingredient !== deleted));
   };
-
- 
+  
+  
   async function handleUpdateDish() {  
-    console.log(avatar);
     const formData = new FormData();
     formData.append('category', category);
     formData.append('title', title);
@@ -51,18 +43,32 @@ export function EditDish() {
     formData.append('price', price);
     formData.append('avatar', avatar);
     formData.append('user_id', user.id);
- 
-
+    
+    
     ingredientsList.map(ingredient => (
       formData.append("ingredients", JSON.stringify(ingredient))
       
-    ));
-
-    await api.patch('/dishes', formData);
-    alert('Dish updated successfully');
-    navigate(-1);
-
-  };
+      ));
+      
+      await api.put(`/dishes/${params.id}`, formData);
+      alert('Dish updated successfully');
+      navigate('/');      
+    };
+    
+    useEffect(() => {
+      async function fetchDish() {
+        const response = await api.get(`/dishes/${params.id}`)
+        // setDish(response.data);
+        const { title, category, ingredients, price, description } = response.data;
+        setDishTitle(title);
+        setDishCategory(category);
+        setIngredientsList(ingredients.map(ingredient => ingredient));
+        setDishPrice(price);
+        setDishDescription(description);
+      }
+      fetchDish();
+    }, []);
+     console.log(ingredientsList);
 
   return (
     <Container>
@@ -88,7 +94,6 @@ export function EditDish() {
                   type='file' 
                   multiple
                   name='dishImg'
-                  // value={dish.avatar}
                   onChange={(e) => setAvatar(e.target.files[0])}
                 />
               </label>
@@ -101,13 +106,13 @@ export function EditDish() {
                 id='dishName'
                 type='text'
                 placeholder='Ex.: Caesar Salad'
-                value={dish.title}
-                onChange={e => setDishName(e.target.value)}
+                value={title}
+                onChange={e => setDishTitle(e.target.value)}
               />
             </div>
             <select 
               placeholder='Choose plate category'
-              value={dish.category}
+              value={category}
               onChange={e => setDishCategory(e.target.value)}
             >
               <option value='Placeholder'>Choose dish category</option>
@@ -120,8 +125,8 @@ export function EditDish() {
             <div className='inputLabelPosition'>
               <label htmlFor='ingredients'>Ingredients</label>
               <div className='divIngredients'>
-                { dish.ingredients &&
-                  dish.ingredients.map((ingredient, index) => (
+                { ingredientsList &&
+                  ingredientsList.map((ingredient, index) => (
                     <Ingredients
                       key={index}
                       value={ingredient.name}
@@ -143,7 +148,7 @@ export function EditDish() {
                 id='price'
                 placeholder='00.00$'
                 maxLength='15' 
-                value={dish.price}
+                value={price}
                 onChange={e => setDishPrice(e.target.value)}
               />
             </div>
@@ -156,7 +161,7 @@ export function EditDish() {
                 id='description'
                 type='textarea'
                 placeholder='Briefly talk about the dish, its ingredients and composition'
-                value={dish.description}
+                value={description}
                 onChange={e => setDishDescription(e.target.value)}
               />
             </div>
