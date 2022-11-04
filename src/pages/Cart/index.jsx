@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import { AiOutlineCreditCard, AiOutlineDollar } from 'react-icons/ai';
-import { api } from '../../services/api'
 
 import { Container, Form } from './styles';
 import { Footer } from '../../components/Footer';
@@ -13,7 +13,7 @@ import { Button } from '../../components/Button';
 
 
 export function Cart() {
-
+  const navigate = useNavigate(); 
   const [isSelected, setIsSelected] = useState(true);
   const [cartProductsList, setCartProductsList] = useState([]);
 
@@ -36,7 +36,7 @@ export function Cart() {
     localStorage.setItem('@foodexplorer:cartProductsListBeforeClean', JSON.stringify(cartProductsList));
     setCartProductsList([]);
     localStorage.removeItem('@foodexplorer:cartProductsList');
-    location.reload();
+    navigate('/commands');
   };
 
   let valueTotal = 0;

@@ -17,7 +17,6 @@ export function EditDish() {
   const navigate = useNavigate(); 
   const {user} = useAuth();
   const [isPopupVisible, setIsPopupVisible] = useState(false); 
-  // const [dish, setDish] = useState('');
   const [avatar, setAvatar] = useState(null);
   const [title, setDishTitle] = useState('');
   const [category, setDishCategory] = useState('');
