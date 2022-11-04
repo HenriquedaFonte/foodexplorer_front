@@ -29,6 +29,11 @@ export function FoodCard({
     setIsFavorite(!isFavorite)
     onSetFavorites(id)
   };
+  
+  function handleDeleteFavorites(id) {
+    setIsFavorite(!isFavorite)
+    onSetFavorites(id)
+  };
 
   function handleSetCart() {
     const cartProduct = {
@@ -39,11 +44,6 @@ export function FoodCard({
       price: price
     };
     onSetCart(cartProduct)
-  };
-
-  function handleDeleteFavorites(id) {
-    setIsFavorite(!isFavorite)
-    onSetFavorites(id)
   };
 
   async function handleRemoveDish() {
