@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Home } from '../pages/Home'
-import { Favorites } from '../pages/Favorites'
-import { ProductDetail } from '../pages/ProductDetail'
-import { Cart } from '../pages/Cart'
-import { Commands } from '../pages/Commands';
+import { Home } from '../pages/home'
+import { Favorites } from '../pages/favorites'
+import { ProductDetail } from '../pages/productdetail'
+import { Cart } from '../pages/cart'
+import { Commands } from '../pages/commands';
 
 export function AppRoutes() {
   return (

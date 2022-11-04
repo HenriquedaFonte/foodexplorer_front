@@ -5,31 +5,6 @@ import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { Footer } from '../../components/Footer';
 
 export function HandleCommands() {
-const commands = [
-  {
-
-    code: "000001",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  },
-  {
-
-    code: "000001",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  },
-  {
-
-    code: "000001",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  },
-  {
-    code: "000001",
-    details: "1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá",
-    madeOn: "05/20 at 18h00"
-  }
-]
 
 const status = [
   {
@@ -48,7 +23,6 @@ const status = [
 
 const [cartProductsList, setCardProductsList] = useState([]);
 
-console.log(cartProductsList);
 useEffect(() => {
   const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsListBeforeClean'));
   if(cartProductsListLocal){

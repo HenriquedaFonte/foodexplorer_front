@@ -17,14 +17,12 @@ export function Cart() {
   const [isSelected, setIsSelected] = useState(true);
   const [cartProductsList, setCartProductsList] = useState([]);
 
-
   useEffect(() => {
     const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList'));
     if(cartProductsListLocal){
       setCartProductsList(cartProductsListLocal);
     };
   },[]);
-  console.log(cartProductsList);
 
   function handleRemoveProduct(id) {
     const cartListFiltered = cartProductsList.filter(cartProduct =>{ 

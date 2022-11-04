@@ -9,7 +9,7 @@ export function Commands() {
 
 const [cartProductsList, setCardProductsList] = useState([]);
 
-console.log(cartProductsList);
+
 useEffect(() => {
   const cartProductsListLocal = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsListBeforeClean'));
   if(cartProductsListLocal){
