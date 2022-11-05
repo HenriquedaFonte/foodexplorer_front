@@ -1,4 +1,3 @@
-<img src='./src/assets/firstPage.png' /> 
 
 <h1 align='center'>
      Food Explorer - Rocketseat 
@@ -16,6 +15,12 @@ I used the following topics:
 - Props;
 - hooks;
 - context;
+---
+
+## ⚙️ Layout
+
+<img src='./src/assets/firstPage.png' /> 
+
 ---
 
 ## ⚙️ Features
