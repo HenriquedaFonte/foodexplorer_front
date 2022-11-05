@@ -47,7 +47,7 @@ export function SignIn() {
           type="text"
           placeholder="email@email.com"
           icon={FiAtSign}
-          onChange={e => setEmail(event.target.value.toLowerCase())}
+          onChange={e => setEmail(e.target.value.toLowerCase())}
         />
         <p>Password</p>
         <div className="inputPassword">
@@ -55,7 +55,7 @@ export function SignIn() {
             type={typeInput} 
             placeholder="Password"
             icon={FiLock}
-            onChange={e => setPassword(event.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
           <button type="button" id="btnPassword" className={classButton} onClick={ToggleTypeInput}/>
         </div>
