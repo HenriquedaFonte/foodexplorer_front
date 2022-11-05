@@ -25,7 +25,7 @@ I used the following topics:
 
 ## ⚙️ Features
 
-- Application developed based on a <a href='https://www.figma.com/file/GkqG5AUJe3ppcUEHfvOX6z/food-explorer'> Figma </a> project
+- Application developed based on a <a href='https://www.figma.com/file/GkqG5AUJe3ppcUEHfvOX6z/food-explorer' target='_blank'> Figma </a> project
 - A structured project, with a good organization of folders, division of components in the front-end, etc.
 - A README.md file with specifications on how to run the project in a dev environment.
 - Users must authenticate themselves to enter the application through the login screen, you can apply what you learned in JWT authentication classes. Authentication must be validated with a password.
