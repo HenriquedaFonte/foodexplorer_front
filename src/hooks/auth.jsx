@@ -1,10 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { api } from '../services/api';
 
 export const AuthContext = createContext({});
-
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
@@ -30,11 +28,9 @@ function AuthProvider({ children }) {
   };
 
   function signOut() {
-    const navigate = useNavigate();  
     localStorage.removeItem('@foodexplorer:token');
     localStorage.removeItem('@foodexplorer:user');
     setData({});
-    navigate('/');
   };
 
 

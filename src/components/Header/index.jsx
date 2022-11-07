@@ -45,7 +45,7 @@ export function Header({onchange, ...props} ) {
             Command
           </button>
         </Link>
-        <div className="logOut" onClick={signOut}>
+        <div className="logOut" onClick={() => {signOut(); navigate('/')}}>
           <MdLogout size={30} fill="white"/>
         </div>  
       </div>    

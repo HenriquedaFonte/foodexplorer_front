@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { TbClipboardList } from 'react-icons/tb';
 import { MdLogout } from 'react-icons/md';
@@ -10,8 +10,8 @@ import { FiSearch } from 'react-icons/fi';
 
 import { Input } from '../Input';
 
-
 export function HeaderAdmin({onchange, ...props}) {
+  const navigate = useNavigate();
   const { signOut } = useAuth();
   return (
     <Container>
@@ -43,7 +43,7 @@ export function HeaderAdmin({onchange, ...props}) {
           </button>
         </Link>
        </div>
-       <div className="logOut" onClick={signOut}>
+       <div className="logOut" onClick={() => {signOut(); navigate('/')}}>
           <MdLogout size={30} fill="white"/>
        </div>
       </div>    

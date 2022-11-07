@@ -14,7 +14,6 @@ export function Favorites() {
   const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
 
 
-
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(`/dishes?title=${search}`);
@@ -25,7 +24,7 @@ export function Favorites() {
   },[search]);
 
   const favoritesLocalId = JSON.parse(localStorage.getItem('@foodexplorer:favorites'));
-  const favoritedDishes = dishes.filter(dish => favoritesLocalId.includes(dish.id));
+  const favoritedDishes = dishes.filter(dish => favoritesLocalId?.includes(dish.id));
 
   function handleSetCart(cartProduct){
     const copyCartProductList = [...cartProductsList]
