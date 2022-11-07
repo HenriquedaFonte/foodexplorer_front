@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { api } from '../services/api';
 
@@ -30,11 +30,12 @@ function AuthProvider({ children }) {
   };
 
   function signOut() {
+  const navigate = useNavigate;
   
   localStorage.removeItem('@foodexplorer:token');
   localStorage.removeItem('@foodexplorer:user');
   setData({});
-  Navigate('/')
+  navigate('/')
   };
 
 
