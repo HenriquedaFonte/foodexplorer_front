@@ -115,7 +115,7 @@ The following tools were used in the construction of the project:
 ## 🦸 Author
 
 <a href='https://github.com/HenriquedaFonte'>
- <img style='border-radius: 50%' src='https://github.com/HenriquedaFonte.png' width='100px;' alt='Henrique da Fonte'/> 
+ <img style='border-radius: 50%;' src='https://github.com/HenriquedaFonte.png' width='100px;' alt='Henrique da Fonte'/> 
  <br/>
  <sub><b>Henrique da Fonte</b></sub>
 </a> 
