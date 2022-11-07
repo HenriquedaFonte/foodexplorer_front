@@ -30,12 +30,11 @@ function AuthProvider({ children }) {
   };
 
   function signOut() {
-  const navigate = useNavigate;
-  
-  localStorage.removeItem('@foodexplorer:token');
-  localStorage.removeItem('@foodexplorer:user');
-  setData({});
-  navigate('/')
+    const navigate = useNavigate();  
+    localStorage.removeItem('@foodexplorer:token');
+    localStorage.removeItem('@foodexplorer:user');
+    setData({});
+    navigate('/');
   };
 
 
