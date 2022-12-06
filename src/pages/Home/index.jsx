@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 export function Home() {
   
   const cartRecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
-  let favoriteList = [];
+  let favoriteList = JSON.parse(localStorage.getItem('@foodexplorer:favorites')) || [];
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState('');
   const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);

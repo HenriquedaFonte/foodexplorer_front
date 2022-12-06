@@ -23,6 +23,18 @@ for (let product of cartProductsList) {
   valueTotal = valueTotal + product.amount * product.price;
 };
 
+function formatDate() {
+  const dateFormatted = new Date()
+
+  let monthFormatted = (dateFormatted.getMonth() + 1).toString()
+  monthFormatted = (monthFormatted.length == 1) ? `0${monthFormatted}` : monthFormatted
+
+  let minutesFormatted = dateFormatted.getMinutes().toString()
+  minutesFormatted = (minutesFormatted.length == 1) ? `0${minutesFormatted}` : minutesFormatted
+
+  return `${monthFormatted}/${dateFormatted.getDate()} às ${dateFormatted.getHours() -3}h${minutesFormatted}`
+}
+
   return (
     <Container>
       <Header amount='0'/>
@@ -48,7 +60,7 @@ for (let product of cartProductsList) {
               </td>
               <td>{index}</td>
               <td>{data.amount} x {data.name}</td>
-              <td>05/20 at 18h00</td>
+              <td>{formatDate()}</td>
             </tr>
           ))} 
           </tbody>

@@ -44,6 +44,7 @@ export function FoodCard({
       price: price
     };
     onSetCart(cartProduct)
+    alert(`${counter} x ${name} added to cart`)
   };
 
   async function handleRemoveDish() {
