@@ -19,16 +19,13 @@ export function Home() {
   const [search, setSearch] = useState('');
   const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
 
-  useEffect(() => {
-    setTimeout(() => {
-      
+  useEffect(() => {     
       async function fetchDishes() {
         const response = await api.get(`/dishes?title=${search}`);
         setDishes(response.data);
         setRemoveLoader(true);
       }
        fetchDishes(); 
-    }, 3000)
   },[search]);
 
 
