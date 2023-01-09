@@ -5,12 +5,14 @@ import bannerImg from '../../assets/bannerImg.png'
 import { Section } from '../../components/Section'
 import { Footer } from '../../components/Footer'
 import { api } from '../../services/api'
-
+import { Loading } from '../../components/Loading'
 import { useState, useEffect } from 'react'
+
 
 
 export function Home() {
   
+  const [removeLoader, setRemoveLoader] = useState(false)
   const cartRecoverFromLocalStorage = JSON.parse(localStorage.getItem('@foodexplorer:cartProductsList')) || [];
   let favoriteList = JSON.parse(localStorage.getItem('@foodexplorer:favorites')) || [];
   const [dishes, setDishes] = useState([]);
@@ -18,11 +20,15 @@ export function Home() {
   const [cartProductsList, setCartProductsList] = useState(cartRecoverFromLocalStorage);
 
   useEffect(() => {
-    async function fetchDishes() {
-      const response = await api.get(`/dishes?title=${search}`);
-      setDishes(response.data);
-    }
-     fetchDishes(); 
+    setTimeout(() => {
+      
+      async function fetchDishes() {
+        const response = await api.get(`/dishes?title=${search}`);
+        setDishes(response.data);
+        setRemoveLoader(true);
+      }
+       fetchDishes(); 
+    }, 3000)
   },[search]);
 
 
@@ -69,11 +75,12 @@ export function Home() {
             <p>Highly selected ingredients</p>
           </div>
         </div>
+        {!removeLoader && <Loading/>}                    
         <div className='section'>
             <Section 
               dish={dishes} 
               onSetFavorites={handleSetfavorites}   
-              onSetCart={handleSetCart}                      
+              onSetCart={handleSetCart}  
             />
         </div>
       </div>
